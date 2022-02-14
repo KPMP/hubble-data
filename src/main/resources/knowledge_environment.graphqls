@@ -1,0 +1,18 @@
+type Query {
+    spatialViewerDataset: [SpatialViewerDataset]
+}
+
+type SpatialViewerDataset {
+    fileId: ID
+    dlFileId: String
+     fileName: String
+     packageId: String
+     fileSize: Float
+     protocol: String
+     metadataTypeId: Int
+     releaseVer: Float
+     releaseSunset: Float
+     configType: String
+     imageType: String
+     dataType: String
+}
