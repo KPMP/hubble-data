@@ -57,30 +57,6 @@ public class SpatialViewerDatasetTest {
     }
 
     @Test
-    public void setMetadataTypeId() {
-        spatialViewerDataset.setMetadataTypeId(123);
-        assertEquals(123, spatialViewerDataset.getMetadataTypeId());
-    }
-
-    @Test
-    public void setReleaseVer() {
-        spatialViewerDataset.setReleaseVer(2.0);
-        assertEquals(2.0, spatialViewerDataset.getReleaseVer(), 0.01);
-    }
-
-    @Test
-    public void setReleaseSunset() {
-        spatialViewerDataset.setReleaseSunset(2.0);
-        assertEquals(2.0, spatialViewerDataset.getReleaseSunset(), 0.01);
-    }
-
-    @Test
-    public void setConfigType() {
-        spatialViewerDataset.setConfigType("config");
-        assertEquals("config", spatialViewerDataset.getConfigType());
-    }
-
-    @Test
     public void setImageType() {
         spatialViewerDataset.setImageType("type");
         assertEquals("type", spatialViewerDataset.getImageType());
@@ -90,5 +66,47 @@ public class SpatialViewerDatasetTest {
     public void setDataType() {
         spatialViewerDataset.setDataType("dtype");
         assertEquals("dtype", spatialViewerDataset.getDataType());
+    }
+
+    @Test
+    public void setParticipantId() {
+        spatialViewerDataset.setParticipantId(12);
+        assertEquals(12, spatialViewerDataset.getParticipantId());
+    }
+
+    @Test
+    public void setRedcapId() {
+        spatialViewerDataset.setRedcapId("redcapid");
+        assertEquals("redcapid", spatialViewerDataset.getRedcapId());
+    }
+
+    @Test
+    public void setAge() {
+        spatialViewerDataset.setAge("age");
+        assertEquals("age", spatialViewerDataset.getAge());
+    }
+
+    @Test
+    public void setSampleType() {
+        spatialViewerDataset.setSampleType("sample");
+        assertEquals("sample", spatialViewerDataset.getSampleType());
+    }
+
+    @Test
+    public void setSex() {
+        spatialViewerDataset.setSex("sex");
+        assertEquals("sex", spatialViewerDataset.getSex());
+    }
+
+    @Test
+    public void setTissueSource() {
+        spatialViewerDataset.setTissueSource("tsource");
+        assertEquals("tsource", spatialViewerDataset.getTissueSource());
+    }
+
+    @Test
+    public void setTissueType() {
+        spatialViewerDataset.setTissueType("ttype");
+        assertEquals("ttype", spatialViewerDataset.getTissueType());
     }
 }

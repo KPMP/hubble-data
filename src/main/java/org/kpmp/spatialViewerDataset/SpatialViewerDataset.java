@@ -14,13 +14,18 @@ public class SpatialViewerDataset {
     private String fileName;
     private String packageId;
     private Long fileSize;
-    private String protocol;
-    private int metadataTypeId;
-    private Double releaseVer;
-    private Double releaseSunset;
     private String configType;
     private String imageType;
     private String dataType;
+    private int participantId;
+    private String redcapId;
+    private String age;
+    private String protocol;
+    private String sampleType;
+    private String sex;
+    private String tissueSource;
+    private String tissueType;
+
 
     public int getFileId() {
         return fileId;
@@ -70,30 +75,6 @@ public class SpatialViewerDataset {
         this.protocol = protocol;
     }
 
-    public int getMetadataTypeId() {
-        return metadataTypeId;
-    }
-
-    public void setMetadataTypeId(int metadataTypeId) {
-        this.metadataTypeId = metadataTypeId;
-    }
-
-    public Double getReleaseVer() {
-        return releaseVer;
-    }
-
-    public void setReleaseVer(Double releaseVer) {
-        this.releaseVer = releaseVer;
-    }
-
-    public Double getReleaseSunset() {
-        return releaseSunset;
-    }
-
-    public void setReleaseSunset(Double releaseSunset) {
-        this.releaseSunset = releaseSunset;
-    }
-
     public String getConfigType() {
         return configType;
     }
@@ -116,5 +97,61 @@ public class SpatialViewerDataset {
 
     public void setDataType(String dataType) {
         this.dataType = dataType;
+    }
+
+    public int getParticipantId() {
+        return participantId;
+    }
+
+    public void setParticipantId(int participantId) {
+        this.participantId = participantId;
+    }
+
+    public String getRedcapId() {
+        return redcapId;
+    }
+
+    public void setRedcapId(String redcapId) {
+        this.redcapId = redcapId;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
+    }
+
+    public String getSampleType() {
+        return sampleType;
+    }
+
+    public void setSampleType(String sampleType) {
+        this.sampleType = sampleType;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public String getTissueSource() {
+        return tissueSource;
+    }
+
+    public void setTissueSource(String tissueSource) {
+        this.tissueSource = tissueSource;
+    }
+
+    public String getTissueType() {
+        return tissueType;
+    }
+
+    public void setTissueType(String tissueType) {
+        this.tissueType = tissueType;
     }
 }

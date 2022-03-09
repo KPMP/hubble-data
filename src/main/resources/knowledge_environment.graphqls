@@ -8,11 +8,15 @@ type SpatialViewerDataset {
      fileName: String
      packageId: String
      fileSize: Float
-     protocol: String
-     metadataTypeId: Int
-     releaseVer: Float
-     releaseSunset: Float
      configType: String
      imageType: String
      dataType: String
+     participantId: Int
+     redcapId: String
+     age: String
+     protocol: String
+     sampleType: String
+     sex: String
+     tissueSource: String
+     ptissueType: String
 }
