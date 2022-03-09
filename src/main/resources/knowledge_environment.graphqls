@@ -18,5 +18,5 @@ type SpatialViewerDataset {
      sampleType: String
      sex: String
      tissueSource: String
-     ptissueType: String
+     tissueType: String
 }

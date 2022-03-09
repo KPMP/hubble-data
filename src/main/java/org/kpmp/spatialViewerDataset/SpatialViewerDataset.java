@@ -26,7 +26,6 @@ public class SpatialViewerDataset {
     private String tissueSource;
     private String tissueType;
 
-
     public int getFileId() {
         return fileId;
     }
