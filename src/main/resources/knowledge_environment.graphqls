@@ -16,5 +16,5 @@ type SpatialViewerDataset {
      imageType: String
      dataType: String
      spectrackSampleId: String
-     participantId: String
+     participantId: Int
 }
