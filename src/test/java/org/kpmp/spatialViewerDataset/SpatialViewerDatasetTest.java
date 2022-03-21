@@ -91,4 +91,16 @@ public class SpatialViewerDatasetTest {
         spatialViewerDataset.setDataType("dtype");
         assertEquals("dtype", spatialViewerDataset.getDataType());
     }
+
+    @Test
+    public void setSpectrackSampleId() {
+        spatialViewerDataset.setSpectrackSampleId("spectrack");
+        assertEquals("spectrack", spatialViewerDataset.getSpectrackSampleId());
+    }
+
+    @Test
+    public void setParticipantId() {
+        spatialViewerDataset.setParticipantId(123);
+        assertEquals(123, spatialViewerDataset.getParticipantId());
+    }
 }

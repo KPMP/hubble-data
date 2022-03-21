@@ -21,6 +21,8 @@ public class SpatialViewerDataset {
     private String configType;
     private String imageType;
     private String dataType;
+    private String spectrackSampleId;
+    private String participantId;
 
     public int getFileId() {
         return fileId;
@@ -117,4 +119,22 @@ public class SpatialViewerDataset {
     public void setDataType(String dataType) {
         this.dataType = dataType;
     }
+
+    public String getSpectrackSampleId() {
+        return spectrackSampleId;
+    }
+    
+    public void setSpectrackSampleId(String spectrackSampleId) {
+        this.spectrackSampleId = spectrackSampleId;
+    }
+
+    public Int getParticipantId() {
+        return participantId;
+    }
+
+    public void setParticipantId(Int participantId) {
+        this.participantId = participantId;
+    }
+    
+
 }

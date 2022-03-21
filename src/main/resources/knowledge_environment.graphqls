@@ -15,4 +15,6 @@ type SpatialViewerDataset {
      configType: String
      imageType: String
      dataType: String
+     spectrackSampleId: String
+     participantId: String
 }
