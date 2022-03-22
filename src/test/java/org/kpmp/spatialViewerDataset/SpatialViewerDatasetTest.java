@@ -109,4 +109,10 @@ public class SpatialViewerDatasetTest {
         spatialViewerDataset.setTissueType("ttype");
         assertEquals("ttype", spatialViewerDataset.getTissueType());
     }
+
+    @Test
+    public void setSpectrackSampleId() {
+        spatialViewerDataset.setSpectrackSampleId("spectrack");
+        assertEquals("spectrack", spatialViewerDataset.getSpectrackSampleId());
+    }
 }

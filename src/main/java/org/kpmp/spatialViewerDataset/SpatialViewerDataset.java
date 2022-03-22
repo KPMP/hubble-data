@@ -17,6 +17,7 @@ public class SpatialViewerDataset {
     private String configType;
     private String imageType;
     private String dataType;
+    private String spectrackSampleId;
     private int participantId;
     private String redcapId;
     private String age;
@@ -152,5 +153,13 @@ public class SpatialViewerDataset {
 
     public void setTissueType(String tissueType) {
         this.tissueType = tissueType;
+    }
+
+    public String getSpectrackSampleId() {
+        return spectrackSampleId;
+    }
+    
+    public void setSpectrackSampleId(String spectrackSampleId) {
+        this.spectrackSampleId = spectrackSampleId;
     }
 }
