@@ -1,0 +1,22 @@
+type Query {
+    spatialViewerDataset: [SpatialViewerDataset]
+}
+
+type SpatialViewerDataset {
+    fileId: ID
+    dlFileId: String
+     fileName: String
+     packageId: String
+     fileSize: Float
+     configType: String
+     imageType: String
+     dataType: String
+     redcapId: String
+     age: String
+     protocol: String
+     sampleType: String
+     sex: String
+     tissueSource: String
+     tissueType: String
+     spectrackSampleId: String
+}
