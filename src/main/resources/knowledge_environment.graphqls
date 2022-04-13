@@ -2,6 +2,14 @@ type Query {
     spatialViewerDataset: [SpatialViewerDataset]
 }
 
+type File {
+ fileId: ID
+ dlFileId: String
+ fileName: String
+ packageId: String
+ fileSize: Float
+}
+
 type SpatialViewerDataset {
     fileId: ID
     dlFileId: String
@@ -19,4 +27,5 @@ type SpatialViewerDataset {
      tissueSource: String
      tissueType: String
      spectrackSampleId: String
+     relatedFiles: [File]
 }
