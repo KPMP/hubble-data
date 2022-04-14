@@ -1,14 +1,24 @@
 package org.kpmp.spatialViewerDataset;
 
+import org.kpmp.file.File;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.util.List;
 
 @Entity
 @Table(name = "sv_file_v")
 public class SpatialViewerDataset {
 
     @Id
+    @Column(name = "file_id")
     private int fileId;
     private String dlFileId;
     private String fileName;
@@ -26,6 +36,17 @@ public class SpatialViewerDataset {
     private String sex;
     private String tissueSource;
     private String tissueType;
+
+    @JoinTable(
+            name = "sv_related_files",
+            joinColumns = @JoinColumn(
+                    name = "file_id"),
+            inverseJoinColumns = @JoinColumn(
+                    name = "related_file_id"
+            )
+    )
+    @ManyToMany(fetch = FetchType.EAGER)
+    private List<File> relatedFiles;
 
     public int getFileId() {
         return fileId;
@@ -161,5 +182,13 @@ public class SpatialViewerDataset {
     
     public void setSpectrackSampleId(String spectrackSampleId) {
         this.spectrackSampleId = spectrackSampleId;
+    }
+
+    public List<File> getRelatedFiles() {
+        return relatedFiles;
+    }
+
+    public void setRelatedFiles(List<File> relatedFiles) {
+        this.relatedFiles = relatedFiles;
     }
 }
