@@ -5,6 +5,10 @@ import static org.junit.Assert.assertEquals;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.kpmp.file.File;
+
+import java.util.Arrays;
+import java.util.List;
 
 public class SpatialViewerDatasetTest {
 
@@ -114,5 +118,13 @@ public class SpatialViewerDatasetTest {
     public void setSpectrackSampleId() {
         spatialViewerDataset.setSpectrackSampleId("spectrack");
         assertEquals("spectrack", spatialViewerDataset.getSpectrackSampleId());
+    }
+
+    @Test
+    public void setRelatedFiles() {
+        File file = new File();
+        List files = Arrays.asList(file);
+        spatialViewerDataset.setRelatedFiles(files);
+        assertEquals(files, spatialViewerDataset.getRelatedFiles());
     }
 }
