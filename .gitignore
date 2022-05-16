@@ -32,8 +32,3 @@ build
 bin
 .gradle
 
-
-target/
-*.classpath
-.classpath
-
