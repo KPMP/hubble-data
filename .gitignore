@@ -31,3 +31,9 @@ build
 .settings
 bin
 .gradle
+
+
+target/
+*.classpath
+.classpath
+
