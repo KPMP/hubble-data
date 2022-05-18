@@ -27,5 +27,6 @@ type SpatialViewerDataset {
      tissueSource: String
      tissueType: String
      spectrackSampleId: String
+     level: String
      relatedFiles: [File]
 }

@@ -121,6 +121,12 @@ public class SpatialViewerDatasetTest {
     }
 
     @Test
+    public void setLevel() {
+        spatialViewerDataset.setLevel("L0");
+        assertEquals("L0", spatialViewerDataset.getLevel());
+    }
+
+    @Test
     public void setRelatedFiles() {
         File file = new File();
         List files = Arrays.asList(file);

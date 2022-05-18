@@ -36,6 +36,7 @@ public class SpatialViewerDataset {
     private String sex;
     private String tissueSource;
     private String tissueType;
+    private String level;
 
     @JoinTable(
             name = "sv_related_files",
@@ -182,6 +183,14 @@ public class SpatialViewerDataset {
     
     public void setSpectrackSampleId(String spectrackSampleId) {
         this.spectrackSampleId = spectrackSampleId;
+    }
+
+    public String getLevel() {
+        return level;
+    }
+
+    public void setLevel(String level) {
+        this.level = level;
     }
 
     public List<File> getRelatedFiles() {
