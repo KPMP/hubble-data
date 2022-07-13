@@ -1,5 +1,6 @@
 type Query {
     spatialViewerDataset: [SpatialViewerDataset]
+    spatialViewerExternalLink: [SpatialViewerExternalLink]
 }
 
 type File {
@@ -29,4 +30,20 @@ type SpatialViewerDataset {
      spectrackSampleId: String
      level: String
      relatedFiles: [File]
+}
+
+type SpatialViewerExternalLink {
+    externalLink: String
+    configType: String
+    imageType: String
+    dataType: String
+    spectrackSampleId: String
+    redcapId: String
+    participantId: Int
+    age: String
+    protocol: String
+    sampleType: String
+    sex: String
+    tissueSource: String
+    tissueType: String
 }
