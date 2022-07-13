@@ -8,7 +8,7 @@ import org.springframework.lang.Nullable;
 
 @Entity
 @Table(name = "sv_link_v")
-public class FileLink {
+public class SpatialViewerExternalLink {
 
     @Id
     @Column(name = "external_link")

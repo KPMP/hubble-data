@@ -8,94 +8,94 @@ import org.junit.Test;
 
 public class FileLinkTest {
 
-    private FileLink fileLink;
+    private SpatialViewerExternalLink spatialViewerExternalLink;
 
     @Before
     public void setUp() throws Exception {
-        fileLink = new FileLink();
+        spatialViewerExternalLink = new SpatialViewerExternalLink();
     }
 
     @After
     public void tearDown() throws Exception {
-        fileLink = null;
+        spatialViewerExternalLink = null;
     }
 
     @Test
     public void setExternalLink() {
-        fileLink.setExternalLink("12345");
-        assertEquals("12345", fileLink.getExternalLink());
+        spatialViewerExternalLink.setExternalLink("12345");
+        assertEquals("12345", spatialViewerExternalLink.getExternalLink());
     }
 
     @Test
     public void setConfigType() {
-        fileLink.setConfigType("12345");
-        assertEquals("12345", fileLink.getConfigType());
+        spatialViewerExternalLink.setConfigType("12345");
+        assertEquals("12345", spatialViewerExternalLink.getConfigType());
  
     }
 
     @Test
     public void setImageType() {
-        fileLink.setImageType("12345");
-        assertEquals("12345", fileLink.getImageType());
+        spatialViewerExternalLink.setImageType("12345");
+        assertEquals("12345", spatialViewerExternalLink.getImageType());
     }
 
     @Test
     public void setDataType() {
-        fileLink.setDataType("12345");
-        assertEquals("12345", fileLink.getDataType());
+        spatialViewerExternalLink.setDataType("12345");
+        assertEquals("12345", spatialViewerExternalLink.getDataType());
     }
 
     @Test
     public void setSpectrackSampleId() {
-        fileLink.setSpectrackSampleId("12345");
-        assertEquals("12345", fileLink.getSpectrackSampleId());
+        spatialViewerExternalLink.setSpectrackSampleId("12345");
+        assertEquals("12345", spatialViewerExternalLink.getSpectrackSampleId());
     }
 
     @Test
     public void setRedcapId() {
-        fileLink.setRedcapId("12345");
-        assertEquals("12345", fileLink.getRedcapId());
+        spatialViewerExternalLink.setRedcapId("12345");
+        assertEquals("12345", spatialViewerExternalLink.getRedcapId());
     }
 
     @Test
     public void setParticipantId() {
-        fileLink.setParticipantId(12345);
-        assertEquals(12345, fileLink.getParticipantId());
+        spatialViewerExternalLink.setParticipantId(12345);
+        assertEquals(12345, spatialViewerExternalLink.getParticipantId());
     }
 
     @Test
     public void setAge() {
-        fileLink.setAge("12345");
-        assertEquals("12345", fileLink.getAge());
+        spatialViewerExternalLink.setAge("12345");
+        assertEquals("12345", spatialViewerExternalLink.getAge());
     }
 
     @Test
     public void getProtocol() {
-        fileLink.setProtocol("12345");
-        assertEquals("12345", fileLink.getProtocol());
+        spatialViewerExternalLink.setProtocol("12345");
+        assertEquals("12345", spatialViewerExternalLink.getProtocol());
     }
 
     @Test
     public void getSampleType() {
-        fileLink.setSampleType("12345");
-        assertEquals("12345", fileLink.getSampleType());
+        spatialViewerExternalLink.setSampleType("12345");
+        assertEquals("12345", spatialViewerExternalLink.getSampleType());
     }
 
     @Test
     public void getSex() {
-        fileLink.setSex("12345");
-        assertEquals("12345", fileLink.getSex());
+        spatialViewerExternalLink.setSex("12345");
+        assertEquals("12345", spatialViewerExternalLink.getSex());
     }
 
     @Test
     public void getTissueSource() {
-        fileLink.setTissueSource("12345");
-        assertEquals("12345", fileLink.getTissueSource());
+        spatialViewerExternalLink.setTissueSource("12345");
+        assertEquals("12345", spatialViewerExternalLink.getTissueSource());
     }
 
     @Test
     public void getTissueType() {
-        fileLink.setTissueType("12345");
-        assertEquals("12345", fileLink.getTissueType());
+        spatialViewerExternalLink.setTissueType("12345");
+        assertEquals("12345", spatialViewerExternalLink.getTissueType());
     }
 }

@@ -7,9 +7,9 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface FileLinkRepository
-    extends CrudRepository<FileLink, Integer> {
+public interface SpatialViewerExternalLinkRepository
+    extends CrudRepository<SpatialViewerExternalLink, Integer> {
 
-    List<FileLink> findAll();
+    List<SpatialViewerExternalLink> findAll();
 
 }
