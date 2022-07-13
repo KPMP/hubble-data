@@ -33,7 +33,7 @@ public class Query implements GraphQLQueryResolver {
 		return spatialViewerDatasetRepository.findAll();
 	}
 
-	public List<SpatialViewerExternalLink> getFileLink() throws IOException, Exception {
+	public List<SpatialViewerExternalLink> getSpatialViewerExternalLink() throws IOException, Exception {
 		return spatialViewerExternalLinkRepository.findAll();
 	}
 }
