@@ -1,14 +1,17 @@
 package org.kpmp.spatialViewerDataset;
 
-import org.springframework.lang.Nullable;
-
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.persistence.Id;
+import javax.persistence.Column;
+import org.springframework.lang.Nullable;
 
 @Entity
-@Table(name = "sv_file_v")
+@Table(name = "sv_link_v")
 public class FileLink {
 
+    @Id
+    @Column(name = "external_link")
     private String externalLink;
     private String configType;
     private String imageType;

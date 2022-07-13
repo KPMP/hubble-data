@@ -1,5 +1,6 @@
 type Query {
     spatialViewerDataset: [SpatialViewerDataset]
+    FileLink: [FileLink]
 }
 
 type File {
