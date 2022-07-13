@@ -32,3 +32,5 @@ build
 .settings
 bin
 .gradle
+
+.vscode/
