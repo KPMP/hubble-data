@@ -1,6 +1,6 @@
 type Query {
     spatialViewerDataset: [SpatialViewerDataset]
-    FileLink: [FileLink]
+    spatialViewerExternalLink: [SpatialViewerExternalLink]
 }
 
 type File {
@@ -32,7 +32,7 @@ type SpatialViewerDataset {
      relatedFiles: [File]
 }
 
-type FileLink {
+type SpatialViewerExternalLink {
     externalLink: String
     configType: String
     imageType: String
