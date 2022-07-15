@@ -2,7 +2,9 @@ package org.kpmp.spatialViewerDataset;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import java.util.ArrayList;
 import java.util.List;
+import java.io.IOException;
 
 @Service
 public class SpatialViewerDatasetService  {
@@ -11,16 +13,25 @@ public class SpatialViewerDatasetService  {
 	private SpatialViewerFileDatasetRepository fileRepo;
 
 	@Autowired
-	public SpatialViewerDatasetService(SpatialViewerExternalLinkRepository externalLinkRepo, SpatialViewerFileDatasetRepository fileRepo) {
+	public SpatialViewerDatasetService(SpatialViewerExternalLinkRepository externalLinkRepo,
+		 SpatialViewerFileDatasetRepository fileRepo) {
 		this.externalLinkRepo = externalLinkRepo;
 		this.fileRepo = fileRepo;
 	}
 
-	//public List<SpatialViewerFileDataset> getSpatialViewerDataset() throws Exception {
-  public void getSpatialViewerDataset() throws Exception {
-    List<SpatialViewerFileDataset> files = fileRepo.findAll();
-    List<SpatialViewerExternalLinkDataset> externalLinks = externalLinkRepo.findAll();
-    //return externalLinks;
+  public List<SpatialViewerDataset> getSpatialViewerDataset() throws Exception {
+    List <SpatialViewerDataset> datasets = new ArrayList<>();
+    datasets.addAll(externalLinkRepo.findAll());
+    datasets.addAll(fileRepo.findAll());
+    return datasets;
+}
+
+	public List<SpatialViewerFileDataset> getSpatialViewerFileDataset() throws IOException, Exception {
+		return fileRepo.findAll();
+	}
+
+	public List<SpatialViewerExternalLinkDataset> getSpatialViewerExternalLink() throws IOException, Exception {
+		return externalLinkRepo.findAll();
 	}
 
 }

@@ -1,10 +1,10 @@
 package org.kpmp;
 
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
-import org.kpmp.spatialViewerDataset.SpatialViewerFileDataset;
-import org.kpmp.spatialViewerDataset.SpatialViewerFileDatasetRepository;
+import org.kpmp.spatialViewerDataset.SpatialViewerDataset;
+import org.kpmp.spatialViewerDataset.SpatialViewerDatasetService;
 import org.kpmp.spatialViewerDataset.SpatialViewerExternalLinkDataset;
-import org.kpmp.spatialViewerDataset.SpatialViewerExternalLinkRepository;
+import org.kpmp.spatialViewerDataset.SpatialViewerFileDataset;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -14,23 +14,24 @@ import java.util.List;
 @Component
 public class Query implements GraphQLQueryResolver {
 
-	private SpatialViewerFileDatasetRepository spatialViewerDatasetRepository;
-	private SpatialViewerExternalLinkRepository spatialViewerExternalLinkRepository;
+	private SpatialViewerDatasetService spatialViewerDatasetService;
 
 	@Autowired
 	public Query(
-		SpatialViewerFileDatasetRepository spatialViewerDatasetRepository,
-		SpatialViewerExternalLinkRepository spatialViewerExternalLinkRepository
+		SpatialViewerDatasetService spatialViewerDatasetService
 	) {
-		this.spatialViewerDatasetRepository = spatialViewerDatasetRepository;
-		this.spatialViewerExternalLinkRepository = spatialViewerExternalLinkRepository;
+		this.spatialViewerDatasetService = spatialViewerDatasetService;
 	}
 
-	public List<SpatialViewerFileDataset> getSpatialViewerDataset() throws IOException, Exception {
-		return spatialViewerDatasetRepository.findAll();
+	public List<SpatialViewerDataset> getSpatialViewerDataset() throws IOException, Exception {
+		return spatialViewerDatasetService.getSpatialViewerDataset();
+	}
+
+	public List<SpatialViewerFileDataset> getSpatialViewerFileDataset() throws IOException, Exception {
+		return spatialViewerDatasetService.getSpatialViewerFileDataset();
 	}
 
 	public List<SpatialViewerExternalLinkDataset> getSpatialViewerExternalLink() throws IOException, Exception {
-		return spatialViewerExternalLinkRepository.findAll();
+		return spatialViewerDatasetService.getSpatialViewerExternalLink();
 	}
 }
