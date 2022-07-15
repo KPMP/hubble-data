@@ -8,11 +8,11 @@ import org.junit.Test;
 
 public class FileLinkTest {
 
-    private SpatialViewerExternalLink spatialViewerExternalLink;
+    private SpatialViewerExternalLinkDataset spatialViewerExternalLink;
 
     @Before
     public void setUp() throws Exception {
-        spatialViewerExternalLink = new SpatialViewerExternalLink();
+        spatialViewerExternalLink = new SpatialViewerExternalLinkDataset();
     }
 
     @After

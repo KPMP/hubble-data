@@ -1,9 +1,9 @@
 package org.kpmp;
 
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
-import org.kpmp.spatialViewerDataset.SpatialViewerDataset;
-import org.kpmp.spatialViewerDataset.SpatialViewerDatasetRepository;
-import org.kpmp.spatialViewerDataset.SpatialViewerExternalLink;
+import org.kpmp.spatialViewerDataset.SpatialViewerFileDataset;
+import org.kpmp.spatialViewerDataset.SpatialViewerFileDatasetRepository;
+import org.kpmp.spatialViewerDataset.SpatialViewerExternalLinkDataset;
 import org.kpmp.spatialViewerDataset.SpatialViewerExternalLinkRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -14,23 +14,23 @@ import java.util.List;
 @Component
 public class Query implements GraphQLQueryResolver {
 
-	private SpatialViewerDatasetRepository spatialViewerDatasetRepository;
+	private SpatialViewerFileDatasetRepository spatialViewerDatasetRepository;
 	private SpatialViewerExternalLinkRepository spatialViewerExternalLinkRepository;
 
 	@Autowired
 	public Query(
-		SpatialViewerDatasetRepository spatialViewerDatasetRepository,
+		SpatialViewerFileDatasetRepository spatialViewerDatasetRepository,
 		SpatialViewerExternalLinkRepository spatialViewerExternalLinkRepository
 	) {
 		this.spatialViewerDatasetRepository = spatialViewerDatasetRepository;
 		this.spatialViewerExternalLinkRepository = spatialViewerExternalLinkRepository;
 	}
 
-	public List<SpatialViewerDataset> getSpatialViewerDataset() throws IOException, Exception {
+	public List<SpatialViewerFileDataset> getSpatialViewerDataset() throws IOException, Exception {
 		return spatialViewerDatasetRepository.findAll();
 	}
 
-	public List<SpatialViewerExternalLink> getSpatialViewerExternalLink() throws IOException, Exception {
+	public List<SpatialViewerExternalLinkDataset> getSpatialViewerExternalLink() throws IOException, Exception {
 		return spatialViewerExternalLinkRepository.findAll();
 	}
 }

@@ -12,11 +12,11 @@ import java.util.List;
 
 public class SpatialViewerDatasetTest {
 
-    private SpatialViewerDataset spatialViewerDataset;
+    private SpatialViewerFileDataset spatialViewerDataset;
 
     @Before
     public void setUp() throws Exception {
-        spatialViewerDataset = new SpatialViewerDataset();
+        spatialViewerDataset = new SpatialViewerFileDataset();
     }
 
     @After

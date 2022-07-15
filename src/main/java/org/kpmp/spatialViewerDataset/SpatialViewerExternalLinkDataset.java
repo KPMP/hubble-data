@@ -5,10 +5,12 @@ import javax.persistence.Table;
 import javax.persistence.Id;
 import javax.persistence.Column;
 import org.springframework.lang.Nullable;
+import org.kpmp.file.File;
+import java.util.List;
 
 @Entity
 @Table(name = "sv_link_v")
-public class SpatialViewerExternalLink {
+public class SpatialViewerExternalLinkDataset implements SpatialViewerDataset {
 
     @Id
     @Column(name = "external_link")
@@ -25,6 +27,7 @@ public class SpatialViewerExternalLink {
     private String sex;
     private String tissueSource;
     private String tissueType;
+
 
     public String getExternalLink() {
         return externalLink;
@@ -137,5 +140,33 @@ public class SpatialViewerExternalLink {
     public void setTissueType(String tissueType){
         this.tissueType = tissueType;
     }
-}
 
+    
+    public String getDlFileId() {
+        return null;
+    }
+    
+    public List<File> getRelatedFiles() {
+        return null;
+    }
+
+    public String  getFileName() {
+        return null;
+    }
+    
+    public int getFileId() {
+        return (Integer) null;
+    }
+    
+    public Long getFileSize() {
+        return null;
+    }
+
+    public String getPackageId() {
+        return null;
+    }
+    
+    public String getLevel() {
+        return null;
+    }    
+}
