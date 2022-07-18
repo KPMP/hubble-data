@@ -13,7 +13,8 @@ public class SpatialViewerDatasetService  {
 	private SpatialViewerFileDatasetRepository fileRepo;
 
 	@Autowired
-	public SpatialViewerDatasetService(SpatialViewerExternalLinkRepository externalLinkRepo,
+	public SpatialViewerDatasetService(
+		 SpatialViewerExternalLinkRepository externalLinkRepo,
 		 SpatialViewerFileDatasetRepository fileRepo) {
 		this.externalLinkRepo = externalLinkRepo;
 		this.fileRepo = fileRepo;

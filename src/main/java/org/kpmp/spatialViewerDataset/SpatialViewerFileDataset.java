@@ -203,4 +203,8 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
     public String getExternalLink() {
         return null;
     }
+
+    public Object getSpatialViewerDataset() {
+      return null;
+    }
 }
