@@ -26,13 +26,13 @@ public class SpatialViewerDatasetServiceTest {
 
 	@Before
 	public void setUp() throws Exception {
-		MockitoAnnotations.initMocks(this);
+		MockitoAnnotations.openMocks(this);
 		service = new SpatialViewerDatasetService(externalLinkRepo, fileRepo);
 	}
 
   @After
 	public void tearDown() throws Exception {
-		// MockitoAnnotations.init(this).close();
+		MockitoAnnotations.openMocks(this).close();
 		service = null;
 	}
 
