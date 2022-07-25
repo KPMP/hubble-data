@@ -1,13 +1,9 @@
 package org.kpmp.spatialViewerDataset;
 
-import static org.junit.Assert.fail;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONException;
-import org.json.JSONObject;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -39,9 +35,18 @@ public class SpatialViewerDatasetServiceTest {
 	@Test
 	public void testGetSpatialViewerDataset() throws JSONException, Exception {
     List<SpatialViewerDataset> expectedResult = new ArrayList<>();
-    SpatialViewerFileDataset spatialViewerFileDataset = mock(SpatialViewerFileDataset.class);
-		when(spatialViewerFileDataset.getSpatialViewerDataset()).thenReturn(expectedResult);
 		assertEquals(expectedResult, service.getSpatialViewerDataset());
 	}
 
+	@Test
+	public void testGetSpatialViewerExternalLink() throws JSONException, Exception {
+    List<SpatialViewerDataset> expectedResult = new ArrayList<>();
+		assertEquals(expectedResult, service.getSpatialViewerExternalLink());
+	}
+
+	@Test
+	public void testGetSpatialViewerFileDataset() throws JSONException, Exception {
+    List<SpatialViewerDataset> expectedResult = new ArrayList<>();
+		assertEquals(expectedResult, service.getSpatialViewerFileDataset());
+	}
 }

@@ -10,7 +10,7 @@ import org.kpmp.file.File;
 import java.util.Arrays;
 import java.util.List;
 
-public class SpatialViewerDatasetTest {
+public class SpatialViewerFileDatasetTest {
 
     private SpatialViewerFileDataset spatialViewerDataset;
 
