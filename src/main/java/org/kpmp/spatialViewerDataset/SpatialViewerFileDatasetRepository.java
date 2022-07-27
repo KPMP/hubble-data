@@ -7,9 +7,9 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface SpatialViewerDatasetRepository
-        extends CrudRepository<SpatialViewerDataset, Integer> {
+public interface SpatialViewerFileDatasetRepository
+        extends CrudRepository<SpatialViewerFileDataset, Integer> {
 
-    List<SpatialViewerDataset> findAll();
+    List<SpatialViewerFileDataset> findAll();
 
 }

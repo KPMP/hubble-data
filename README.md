@@ -5,6 +5,11 @@ The service-layer for the KPMP Atlas Spatial Viewer
 
 `./gradlew test`
 
+# Clear gradlew cache
+If you have having troubles seeing changes during development, you can try to clear the gradle cache by running the following command:
+
+`./gradlew clean`
+
 # Build
 
 `./gradlew build docker`

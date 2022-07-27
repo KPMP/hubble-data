@@ -6,13 +6,13 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-public class FileLinkTest {
+public class SpatialViewerExternalLinkDatasetTest {
 
-    private SpatialViewerExternalLink spatialViewerExternalLink;
+    private SpatialViewerExternalLinkDataset spatialViewerExternalLink;
 
     @Before
     public void setUp() throws Exception {
-        spatialViewerExternalLink = new SpatialViewerExternalLink();
+        spatialViewerExternalLink = new SpatialViewerExternalLinkDataset();
     }
 
     @After

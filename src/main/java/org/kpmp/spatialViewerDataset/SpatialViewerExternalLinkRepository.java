@@ -8,8 +8,8 @@ import java.util.List;
 
 @Repository
 public interface SpatialViewerExternalLinkRepository
-    extends CrudRepository<SpatialViewerExternalLink, Integer> {
+    extends CrudRepository<SpatialViewerExternalLinkDataset, Integer> {
 
-    List<SpatialViewerExternalLink> findAll();
+    List<SpatialViewerExternalLinkDataset> findAll();
 
 }

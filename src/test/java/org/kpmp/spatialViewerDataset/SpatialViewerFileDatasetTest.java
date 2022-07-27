@@ -10,13 +10,13 @@ import org.kpmp.file.File;
 import java.util.Arrays;
 import java.util.List;
 
-public class SpatialViewerDatasetTest {
+public class SpatialViewerFileDatasetTest {
 
-    private SpatialViewerDataset spatialViewerDataset;
+    private SpatialViewerFileDataset spatialViewerDataset;
 
     @Before
     public void setUp() throws Exception {
-        spatialViewerDataset = new SpatialViewerDataset();
+        spatialViewerDataset = new SpatialViewerFileDataset();
     }
 
     @After
