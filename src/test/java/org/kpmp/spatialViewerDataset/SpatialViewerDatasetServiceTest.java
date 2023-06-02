@@ -9,6 +9,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.core.env.Environment;
+import org.springframework.web.client.RestTemplate;
 
 public class SpatialViewerDatasetServiceTest {
 
@@ -17,13 +19,19 @@ public class SpatialViewerDatasetServiceTest {
 	@Mock
 	private SpatialViewerExternalLinkRepository externalLinkRepo;
 
+	@Mock
+	private RestTemplate restTemplate;
+
+	@Mock
+	Environment env;
+
   
 	private SpatialViewerDatasetService service;
 
 	@Before
 	public void setUp() throws Exception {
 		MockitoAnnotations.openMocks(this);
-		service = new SpatialViewerDatasetService(externalLinkRepo, fileRepo);
+		service = new SpatialViewerDatasetService(externalLinkRepo, fileRepo, restTemplate, env);
 	}
 
   @After
