@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Id;
 import javax.persistence.Column;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.lang.Nullable;
 import org.kpmp.file.File;
 import java.util.List;
@@ -28,15 +30,16 @@ public class SpatialViewerExternalLinkDataset implements SpatialViewerDataset {
     private String tissueSource;
     private String tissueType;
 
-
+    @JsonProperty("externallink")
     public String getExternalLink() {
         return externalLink;
     }
-    
+
     public void setExternalLink(String externalLink) {
         this.externalLink = externalLink;
     }
 
+    @JsonProperty("configtype")
     public String getConfigType() {
         return configType;
     }
@@ -45,6 +48,7 @@ public class SpatialViewerExternalLinkDataset implements SpatialViewerDataset {
         this.configType = configType;
     }
 
+    @JsonProperty("imagetype")
     public String getImageType() {
         return imageType;
     }
@@ -53,6 +57,7 @@ public class SpatialViewerExternalLinkDataset implements SpatialViewerDataset {
         this.imageType = imageType;
     }
 
+    @JsonProperty("datatype")
     public String getDataType() {
             return dataType;
     }
@@ -62,6 +67,7 @@ public class SpatialViewerExternalLinkDataset implements SpatialViewerDataset {
     }
 
     @Nullable
+    @JsonProperty("spectracksampleid")
     public String getSpectrackSampleId() {
         return spectrackSampleId;
     }
@@ -71,6 +77,7 @@ public class SpatialViewerExternalLinkDataset implements SpatialViewerDataset {
     }
 
     @Nullable
+    @JsonProperty("redcapid")
     public String getRedcapId() {
         return redcapId;
     }
@@ -79,6 +86,7 @@ public class SpatialViewerExternalLinkDataset implements SpatialViewerDataset {
         this.redcapId = redcapId;
     }
 
+    @JsonProperty("participantid")
     public int getParticipantId() {
         return participantId;
     }
@@ -88,6 +96,7 @@ public class SpatialViewerExternalLinkDataset implements SpatialViewerDataset {
     }
 
     @Nullable
+    @JsonProperty("age")
     public String getAge() {
         return age;
     }
@@ -97,6 +106,7 @@ public class SpatialViewerExternalLinkDataset implements SpatialViewerDataset {
     }
 
     @Nullable
+    @JsonProperty("protocol")
     public String getProtocol() {
         return protocol;
     }
@@ -106,6 +116,7 @@ public class SpatialViewerExternalLinkDataset implements SpatialViewerDataset {
     }
 
     @Nullable
+    @JsonProperty("sampletype")
     public String getSampleType() {
         return sampleType;
     }
@@ -115,6 +126,7 @@ public class SpatialViewerExternalLinkDataset implements SpatialViewerDataset {
     }
 
     @Nullable
+    @JsonProperty("sex")
     public String getSex() {
         return sex;
     }
@@ -124,6 +136,7 @@ public class SpatialViewerExternalLinkDataset implements SpatialViewerDataset {
     }
 
     @Nullable
+    @JsonProperty("tissuesource")
     public String getTissueSource() {
         return tissueSource;
     }
@@ -133,6 +146,7 @@ public class SpatialViewerExternalLinkDataset implements SpatialViewerDataset {
     }
 
     @Nullable
+    @JsonProperty("tissuetype")
     public String getTissueType(){
         return tissueType;
     }
@@ -141,31 +155,37 @@ public class SpatialViewerExternalLinkDataset implements SpatialViewerDataset {
         this.tissueType = tissueType;
     }
 
-    
+    @JsonProperty("dlfileid")
     public String getDlFileId() {
         return null;
     }
-    
+
+    @JsonProperty("relatedfiles")
     public List<File> getRelatedFiles() {
         return null;
     }
 
+    @JsonProperty("filename")
     public String  getFileName() {
         return null;
     }
-    
+
+    @JsonProperty("fileid")
     public int getFileId() {
         return (Integer) null;
     }
-    
+
+    @JsonProperty("filesize")
     public Long getFileSize() {
         return null;
     }
 
+    @JsonProperty("packageid")
     public String getPackageId() {
         return null;
     }
-    
+
+    @JsonProperty("level")
     public String getLevel() {
         return null;
     }    
