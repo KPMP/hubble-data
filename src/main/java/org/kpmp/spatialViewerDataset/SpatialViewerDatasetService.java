@@ -25,7 +25,6 @@ public class SpatialViewerDatasetService  {
 	private RestTemplate restTemplate;
 	private SpatialViewerExternalLinkRepository externalLinkRepo;
 	private SpatialViewerFileDatasetRepository fileRepo;
-
 	private Environment env;
 
 	@Autowired
