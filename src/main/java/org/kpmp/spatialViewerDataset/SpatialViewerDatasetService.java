@@ -18,13 +18,12 @@ public class SpatialViewerDatasetService  {
 
 	@Value("${enterprise-search.host}")
 	private String enterpriseSearchHost;
-
 	@Value("${enterprise-search.engine.name}")
 	private String enterpriseSearchEngineName;
-
-	private RestTemplate restTemplate;
 	private SpatialViewerExternalLinkRepository externalLinkRepo;
 	private SpatialViewerFileDatasetRepository fileRepo;
+
+	private RestTemplate restTemplate;
 	private Environment env;
 
 	@Autowired
@@ -54,7 +53,7 @@ public class SpatialViewerDatasetService  {
 
 	public String loadEnterpriseSearch() throws Exception {
 		List<SpatialViewerDataset> datasets = getSpatialViewerDataset();
-		String token = env.getProperty("ES_TOKEN");
+		String token = env.getProperty("ES_API_TOKEN");
 		HttpHeaders headers = new HttpHeaders();
 		headers.set("Authorization", "Bearer "+ token);
 		headers.setContentType(MediaType.APPLICATION_JSON);
