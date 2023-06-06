@@ -11,7 +11,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 @EnableCaching
-@SpringBootApplication
+@ComponentScan(basePackages = { "org.kpmp" })
 public class Application {
 
 	public static void main(String[] args) {
