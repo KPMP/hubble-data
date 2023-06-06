@@ -17,7 +17,7 @@ public class SpatialViewerDatasetController {
         this.spatialViewerDatasetService = spatialViewerDatasetService;
     }
 
-    @RequestMapping(value = "/v1/spatial-viewer/load-search", method = RequestMethod.GET)
+    @RequestMapping(value = "/api/v1/spatial-viewer/load-search", method = RequestMethod.GET)
     public @ResponseBody String loadSearch(HttpServletRequest request) throws Exception {
         return spatialViewerDatasetService.loadEnterpriseSearch();
     }
