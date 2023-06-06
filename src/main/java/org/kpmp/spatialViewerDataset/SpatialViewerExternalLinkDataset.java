@@ -5,13 +5,12 @@ import javax.persistence.Table;
 import javax.persistence.Id;
 import javax.persistence.Column;
 
-import com.fasterxml.jackson.annotation.JsonGetter;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonSetter;
-import com.fasterxml.jackson.annotation.Nulls;
+import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.springframework.lang.Nullable;
 import org.kpmp.file.File;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -166,31 +165,30 @@ public class SpatialViewerExternalLinkDataset implements SpatialViewerDataset {
     @Nullable
     @JsonProperty("relatedfiles")
     public List<File> getRelatedFiles() {
-        return null;
+        return new ArrayList<>();
     }
-    @Nullable
-    @JsonProperty("filename")
+
+    @JsonIgnore
     public String  getFileName() {
         return null;
     }
-    @Nullable
-    @JsonProperty("fileid")
+    @JsonIgnore
+
     public int getFileId() {
         return (Integer) null;
     }
-    @Nullable
+    @JsonIgnore
 
-    @JsonProperty("filesize")
     public Long getFileSize() {
         return null;
     }
-    @Nullable
-    @JsonProperty("packageid")
+    @JsonIgnore
+
     public String getPackageId() {
         return null;
     }
-    @Nullable
-    @JsonProperty("level")
+    @JsonIgnore
+
     public String getLevel() {
         return null;
     }    
