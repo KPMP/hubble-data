@@ -23,8 +23,7 @@ public class Application {
 		return new WebMvcConfigurer() {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/graphql").allowedOrigins("http://localhost:3000");
-				registry.addMapping("/v1/spatial-viewer/load-search").allowedOrigins("http://localhost:3000");
+				registry.addMapping("/**").allowedOrigins("http://localhost:3000");
 			}
 		};
 	}
