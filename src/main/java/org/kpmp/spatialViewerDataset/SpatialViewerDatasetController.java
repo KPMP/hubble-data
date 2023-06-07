@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @Controller
 public class SpatialViewerDatasetController {
@@ -18,7 +19,7 @@ public class SpatialViewerDatasetController {
     }
 
     @RequestMapping(value = "/api/v1/spatial-viewer/load-search", method = RequestMethod.GET)
-    public @ResponseBody String loadSearch(HttpServletRequest request) throws Exception {
+    public @ResponseBody List loadSearch(HttpServletRequest request) throws Exception {
         return spatialViewerDatasetService.loadEnterpriseSearch();
     }
 }
