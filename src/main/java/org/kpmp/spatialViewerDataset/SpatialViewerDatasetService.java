@@ -60,12 +60,14 @@ public class SpatialViewerDatasetService  {
 		headers.setContentType(MediaType.APPLICATION_JSON);
 		int chunks = (int) Math.ceil(datasets.size() / 100);
 		for (int i = 0; i < chunks; i++) {
+			int beginIndex = i * 100;
 			int endIndex;
 			if (i == chunks - 1)
 				endIndex = datasets.size();
 			else
 				endIndex = (i * 100) + 99;
-			List datasetSlice = datasets.subList(i * 100, endIndex);
+			System.out.println("getting " + beginIndex + " to " + endIndex);
+			List datasetSlice = datasets.subList(beginIndex, endIndex);
 			HttpEntity<Object> entity = new HttpEntity<>(datasetSlice, headers);
 			responses.add(restTemplate.postForObject(enterpriseSearchHost + "/api/as/v1/engines/" + enterpriseSearchEngineName  + "/documents",
 					entity, String.class));
