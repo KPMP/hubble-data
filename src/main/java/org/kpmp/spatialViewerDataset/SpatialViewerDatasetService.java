@@ -27,7 +27,7 @@ public class SpatialViewerDatasetService  {
 	private RestTemplate restTemplate;
 	private Environment env;
 
-	private class ESResponse {
+	private static class ESResponse {
 		String id;
 		List errors;
 
