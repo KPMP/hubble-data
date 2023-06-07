@@ -19,7 +19,7 @@ public class SpatialViewerDatasetController {
     }
 
     @RequestMapping(value = "/api/v1/spatial-viewer/load-search", method = RequestMethod.GET)
-    public @ResponseBody List loadSearch(HttpServletRequest request) throws Exception {
-        return spatialViewerDatasetService.loadEnterpriseSearch();
+    public @ResponseBody String loadSearch(HttpServletRequest request) throws Exception {
+        return "Successfully added " + spatialViewerDatasetService.loadEnterpriseSearch().size() + " documents.";
     }
 }

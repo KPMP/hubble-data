@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.io.IOException;
 
@@ -25,6 +26,27 @@ public class SpatialViewerDatasetService  {
 
 	private RestTemplate restTemplate;
 	private Environment env;
+
+	private class ESResponse {
+		String id;
+		List errors;
+
+		public String getId() {
+			return id;
+		}
+
+		public void setId(String id) {
+			this.id = id;
+		}
+
+		public List getErrors() {
+			return errors;
+		}
+
+		public void setErrors(List errors) {
+			this.errors = errors;
+		}
+	}
 
 	@Autowired
 	public SpatialViewerDatasetService(
@@ -51,26 +73,26 @@ public class SpatialViewerDatasetService  {
 		return externalLinkRepo.findAll();
 	}
 
-	public List loadEnterpriseSearch() throws Exception {
-		List<String> responses = new ArrayList<>();
+	public List<ESResponse> loadEnterpriseSearch() throws Exception {
+		List<ESResponse> responses = new ArrayList<>();
 		List<SpatialViewerDataset> datasets = getSpatialViewerDataset();
 		String token = env.getProperty("ES_API_TOKEN");
 		HttpHeaders headers = new HttpHeaders();
 		headers.set("Authorization", "Bearer "+ token);
 		headers.setContentType(MediaType.APPLICATION_JSON);
-		int chunks = (int) Math.ceil(datasets.size() / 100);
+		int chunks = (int) Math.ceil((double) datasets.size() / 100.00);
 		for (int i = 0; i < chunks; i++) {
 			int beginIndex = i * 100;
 			int endIndex;
 			if (i == chunks - 1)
 				endIndex = datasets.size();
 			else
-				endIndex = (i * 100) + 99;
-			System.out.println("getting " + beginIndex + " to " + endIndex);
+				endIndex = (i * 100) + 100;
 			List datasetSlice = datasets.subList(beginIndex, endIndex);
 			HttpEntity<Object> entity = new HttpEntity<>(datasetSlice, headers);
-			responses.add(restTemplate.postForObject(enterpriseSearchHost + "/api/as/v1/engines/" + enterpriseSearchEngineName  + "/documents",
-					entity, String.class));
+			ESResponse[] response = restTemplate.postForObject(enterpriseSearchHost + "/api/as/v1/engines/" + enterpriseSearchEngineName + "/documents",
+					entity, ESResponse[].class);
+			Collections.addAll(responses, response);
 		}
 		return responses;
 	}
