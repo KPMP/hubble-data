@@ -11,7 +11,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 @EnableCaching
-@SpringBootApplication
 @ComponentScan(basePackages = { "org.kpmp" })
 public class Application {
 
@@ -25,6 +24,7 @@ public class Application {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
 				registry.addMapping("/graphql").allowedOrigins("http://localhost:3000");
+				registry.addMapping("/api/**").allowedOrigins("http://localhost:3000");
 			}
 		};
 	}
