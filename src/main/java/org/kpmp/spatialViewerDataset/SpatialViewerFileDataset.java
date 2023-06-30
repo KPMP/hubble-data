@@ -1,5 +1,6 @@
 package org.kpmp.spatialViewerDataset;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.kpmp.file.File;
 
 import javax.persistence.Column;
@@ -48,6 +49,7 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
     @ManyToMany(fetch = FetchType.EAGER)
     private List<File> relatedFiles;
 
+    @JsonProperty("fileid")
     public int getFileId() {
         return fileId;
     }
@@ -56,6 +58,7 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
         this.fileId = fileId;
     }
 
+    @JsonProperty("dlfileid")
     public String getDlFileId() {
         return dlFileId;
     }
@@ -64,6 +67,7 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
         this.dlFileId = dlFileId;
     }
 
+    @JsonProperty("filename")
     public String getFileName() {
         return fileName;
     }
@@ -72,6 +76,7 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
         this.fileName = fileName;
     }
 
+    @JsonProperty("packageid")
     public String getPackageId() {
         return packageId;
     }
@@ -80,6 +85,7 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
         this.packageId = packageId;
     }
 
+    @JsonProperty("filesize")
     public Long getFileSize() {
         return fileSize;
     }
@@ -88,6 +94,7 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
         this.fileSize = fileSize;
     }
 
+    @JsonProperty("protocol")
     public String getProtocol() {
         return protocol;
     }
@@ -96,6 +103,7 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
         this.protocol = protocol;
     }
 
+    @JsonProperty("configtype")
     public String getConfigType() {
         return configType;
     }
@@ -104,6 +112,7 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
         this.configType = configType;
     }
 
+    @JsonProperty("imagetype")
     public String getImageType() {
         return imageType;
     }
@@ -112,6 +121,7 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
         this.imageType = imageType;
     }
 
+    @JsonProperty("datatype")
     public String getDataType() {
         return dataType;
     }
@@ -120,6 +130,7 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
         this.dataType = dataType;
     }
 
+    @JsonProperty("participantid")
     public int getParticipantId() {
         return participantId;
     }
@@ -128,6 +139,7 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
         this.participantId = participantId;
     }
 
+    @JsonProperty("redcapid")
     public String getRedcapId() {
         return redcapId;
     }
@@ -136,6 +148,7 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
         this.redcapId = redcapId;
     }
 
+    @JsonProperty("age")
     public String getAge() {
         return age;
     }
@@ -144,6 +157,7 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
         this.age = age;
     }
 
+    @JsonProperty("sampletype")
     public String getSampleType() {
         return sampleType;
     }
@@ -152,6 +166,7 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
         this.sampleType = sampleType;
     }
 
+    @JsonProperty("sex")
     public String getSex() {
         return sex;
     }
@@ -160,6 +175,7 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
         this.sex = sex;
     }
 
+    @JsonProperty("tissuesource")
     public String getTissueSource() {
         return tissueSource;
     }
@@ -168,6 +184,7 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
         this.tissueSource = tissueSource;
     }
 
+    @JsonProperty("tissuetype")
     public String getTissueType() {
         return tissueType;
     }
@@ -176,6 +193,7 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
         this.tissueType = tissueType;
     }
 
+    @JsonProperty("spectracksampleid")
     public String getSpectrackSampleId() {
         return spectrackSampleId;
     }
@@ -184,6 +202,7 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
         this.spectrackSampleId = spectrackSampleId;
     }
 
+    @JsonProperty("level")
     public String getLevel() {
         return level;
     }
@@ -192,6 +211,7 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
         this.level = level;
     }
 
+    @JsonProperty("relatedfiles")
     public List<File> getRelatedFiles() {
         return relatedFiles;
     }
@@ -199,11 +219,13 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
     public void setRelatedFiles(List<File> relatedFiles) {
         this.relatedFiles = relatedFiles;
     }
-    
+
+    @JsonProperty("externallink")
     public String getExternalLink() {
         return null;
     }
 
+    @JsonProperty("spatialviewerdataset")
     public Object getSpatialViewerDataset() {
       return null;
     }
