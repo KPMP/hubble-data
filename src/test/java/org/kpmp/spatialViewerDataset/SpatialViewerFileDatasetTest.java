@@ -133,4 +133,10 @@ public class SpatialViewerFileDatasetTest {
         spatialViewerDataset.setRelatedFiles(files);
         assertEquals(files, spatialViewerDataset.getRelatedFiles());
     }
+
+    @Test
+    public void setReleaseVerison(){
+        spatialViewerDataset.setReleaseVersion("56");
+        assertEquals("56", spatialViewerDataset.getReleaseVersion());
+    }
 }

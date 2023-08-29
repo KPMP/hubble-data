@@ -32,6 +32,7 @@ public class SpatialViewerExternalLinkDataset implements SpatialViewerDataset {
     private String sex;
     private String tissueSource;
     private String tissueType;
+    private String releaseVersion;
 
     @JsonProperty("externallink")
     public String getExternalLink() {
@@ -191,5 +192,10 @@ public class SpatialViewerExternalLinkDataset implements SpatialViewerDataset {
 
     public String getLevel() {
         return null;
-    }    
+    }
+
+    @JsonIgnore
+    public String getReleaseVersion(){
+        return null;
+    }
 }

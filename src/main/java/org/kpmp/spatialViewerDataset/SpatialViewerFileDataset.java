@@ -37,6 +37,7 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
     private String tissueSource;
     private String tissueType;
     private String level;
+    private String releaseVersion;
 
     @JoinTable(
             name = "sv_related_files",
@@ -228,5 +229,14 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
     @JsonProperty("spatialviewerdataset")
     public Object getSpatialViewerDataset() {
       return null;
+    }
+    
+    @JsonProperty("releaseversion")
+    public String getReleaseVersion(){
+        return releaseVersion;
+    }
+
+    public void setReleaseVersion(String releaseVersion){
+        this.releaseVersion = releaseVersion;
     }
 }

@@ -11,7 +11,9 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.io.IOException;
 
 @Service
@@ -59,10 +61,21 @@ public class SpatialViewerDatasetService  {
 	}
 
   public List<SpatialViewerDataset> getSpatialViewerDataset() throws Exception {
-    List <SpatialViewerDataset> datasets = new ArrayList<>();
-    datasets.addAll(externalLinkRepo.findAll());
-    datasets.addAll(fileRepo.findAll());
-    return datasets;
+    List <SpatialViewerDataset> datasetsFinal = new ArrayList<>();
+    List <SpatialViewerFileDataset> datasets = fileRepo.findAll();
+    Map<String, SpatialViewerFileDataset> fileMap = new HashMap<>();
+    Double maxReleaseVersion = fileRepo.max();
+    for (SpatialViewerFileDataset spatialViewerFileDataset : datasets){
+         if (spatialViewerFileDataset.getReleaseVersion() == maxReleaseVersion.toString()){
+            spatialViewerFileDataset.setReleaseVersion("Recently Released");
+         }else{
+            spatialViewerFileDataset.setReleaseVersion(null);
+         }
+         fileMap.put(spatialViewerFileDataset.getDlFileId(), spatialViewerFileDataset);
+    }
+    datasetsFinal.addAll(externalLinkRepo.findAll());
+    datasetsFinal.addAll(fileMap.values());
+    return datasetsFinal;
 }
 
 	public List<SpatialViewerFileDataset> getSpatialViewerFileDataset() throws IOException, Exception {
