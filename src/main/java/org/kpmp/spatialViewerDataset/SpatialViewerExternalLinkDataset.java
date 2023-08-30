@@ -195,7 +195,7 @@ public class SpatialViewerExternalLinkDataset implements SpatialViewerDataset {
     }
 
     @JsonIgnore
-    public String getReleaseVersion(){
+    public Double getReleaseVersion(){
         return null;
     }
 }

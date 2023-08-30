@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
 import java.util.List;
 
 @Entity
@@ -37,7 +39,11 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
     private String tissueSource;
     private String tissueType;
     private String level;
-    private String releaseVersion;
+    private Double releaseVersion;
+    @Transient
+    private String releaseVersionDisplay;
+
+    
 
     @JoinTable(
             name = "sv_related_files",
@@ -231,12 +237,22 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
       return null;
     }
     
-    @JsonProperty("releaseversion")
-    public String getReleaseVersion(){
+    
+    public Double getReleaseVersion(){
         return releaseVersion;
     }
 
-    public void setReleaseVersion(String releaseVersion){
+    public void setReleaseVersion(Double releaseVersion){
         this.releaseVersion = releaseVersion;
+    }
+
+    
+    @JsonProperty("releaseversion")
+    public String getReleaseVersionDisplay() {
+        return releaseVersionDisplay;
+    }
+
+    public void setReleaseVersionDisplay(String releaseVersionDisplay) {
+        this.releaseVersionDisplay = releaseVersionDisplay;
     }
 }

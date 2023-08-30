@@ -45,7 +45,7 @@ public interface SpatialViewerDataset {
   
   String getExternalLink();
 
-  String getReleaseVersion();
+  Double getReleaseVersion();
 
 }
 

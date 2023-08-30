@@ -82,9 +82,9 @@ public class SpatialViewerDatasetServiceTest {
 		SpatialViewerExternalLinkDataset spatialViewerDataset2 = new SpatialViewerExternalLinkDataset();
 		SpatialViewerFileDataset spatialViewerDataset3 = new SpatialViewerFileDataset();
         spatialViewerDataset3.setDlFileId("DlFileId");
-        spatialViewerDataset3.setReleaseVersion("45.0");
+        spatialViewerDataset3.setReleaseVersion(45.0);
 		SpatialViewerFileDataset spatialViewerDataset4 = new SpatialViewerFileDataset();
-        spatialViewerDataset4.setReleaseVersion("34.0");
+        spatialViewerDataset4.setReleaseVersion(34.0);
         spatialViewerDataset4.setDlFileId("DlFileId2");
 		expectedResult1.add(spatialViewerDataset1);
 		expectedResult1.add(spatialViewerDataset2);

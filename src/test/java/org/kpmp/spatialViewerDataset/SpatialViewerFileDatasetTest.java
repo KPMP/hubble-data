@@ -136,7 +136,14 @@ public class SpatialViewerFileDatasetTest {
 
     @Test
     public void setReleaseVerison(){
-        spatialViewerDataset.setReleaseVersion("56");
-        assertEquals("56", spatialViewerDataset.getReleaseVersion());
+        Double expected = 56.0;
+        spatialViewerDataset.setReleaseVersion(56.0);
+        assertEquals(expected, spatialViewerDataset.getReleaseVersion());
+    }
+
+    @Test 
+    public void setReleaseVersionDisplay(){
+        spatialViewerDataset.setReleaseVersionDisplay("Recently Released");
+        assertEquals("Recently Released", spatialViewerDataset.getReleaseVersionDisplay());
     }
 }
