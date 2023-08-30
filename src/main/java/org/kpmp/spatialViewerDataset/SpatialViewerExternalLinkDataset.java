@@ -2,6 +2,7 @@ package org.kpmp.spatialViewerDataset;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.persistence.Id;
 import javax.persistence.Column;
 
@@ -32,7 +33,6 @@ public class SpatialViewerExternalLinkDataset implements SpatialViewerDataset {
     private String sex;
     private String tissueSource;
     private String tissueType;
-    private String releaseVersion;
 
     @JsonProperty("externallink")
     public String getExternalLink() {
@@ -193,8 +193,8 @@ public class SpatialViewerExternalLinkDataset implements SpatialViewerDataset {
     public String getLevel() {
         return null;
     }
-
     @JsonIgnore
+
     public Double getReleaseVersion(){
         return null;
     }
