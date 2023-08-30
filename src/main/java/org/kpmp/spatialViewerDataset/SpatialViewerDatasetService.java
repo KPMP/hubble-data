@@ -66,7 +66,7 @@ public class SpatialViewerDatasetService  {
     Map<String, SpatialViewerFileDataset> fileMap = new HashMap<>();
     Double maxReleaseVersion = fileRepo.max();
     for (SpatialViewerFileDataset spatialViewerFileDataset : datasets){
-         if (spatialViewerFileDataset.getReleaseVersion() == maxReleaseVersion){
+         if (Double.compare(spatialViewerFileDataset.getReleaseVersion(), maxReleaseVersion) == 0){
             spatialViewerFileDataset.setReleaseVersionDisplay("Recently Released");
          }else{
             spatialViewerFileDataset.setReleaseVersionDisplay(null);
