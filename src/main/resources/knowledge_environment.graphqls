@@ -30,7 +30,7 @@ type SpatialViewerDataset {
     level: String # may be null
     relatedFiles: [File] # may be null
     externalLink: String # may be null
-    releaseVersion: Double
+    releaseVersion: Float
 }
 
 type SpatialViewerExternalLink {
