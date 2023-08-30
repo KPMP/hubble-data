@@ -1,11 +1,14 @@
 package org.kpmp.spatialViewerDataset;
 
-import static org.junit.Assert.assertEquals;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.kpmp.file.File;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.Arrays;
 import java.util.List;
@@ -14,12 +17,12 @@ public class SpatialViewerFileDatasetTest {
 
     private SpatialViewerFileDataset spatialViewerDataset;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         spatialViewerDataset = new SpatialViewerFileDataset();
     }
 
-    @After
+    @AfterEach
     public void tearDown() throws Exception {
         spatialViewerDataset = null;
     }
@@ -145,5 +148,13 @@ public class SpatialViewerFileDatasetTest {
     public void setReleaseVersionDisplay(){
         spatialViewerDataset.setReleaseVersionDisplay("Recently Released");
         assertEquals("Recently Released", spatialViewerDataset.getReleaseVersionDisplay());
+    }
+
+    @Test
+    public void findNullPointers(){
+        Double maxReleaseVersion = 45.0;
+        spatialViewerDataset.setReleaseVersion(45.0);
+        int result = Double.compare(spatialViewerDataset.getReleaseVersion(), maxReleaseVersion);
+        assertEquals(0, result);
     }
 }

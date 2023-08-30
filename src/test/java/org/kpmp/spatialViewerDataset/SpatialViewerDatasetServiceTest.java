@@ -7,9 +7,9 @@ import static org.mockito.Mockito.when;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONException;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
@@ -36,7 +36,7 @@ public class SpatialViewerDatasetServiceTest {
   
 	private SpatialViewerDatasetService service;
 
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		MockitoAnnotations.openMocks(this);
 		service = new SpatialViewerDatasetService(externalLinkRepo, fileRepo, restTemplate, env);
@@ -44,7 +44,7 @@ public class SpatialViewerDatasetServiceTest {
 		ReflectionTestUtils.setField(service, "enterpriseSearchEngineName", "search-engine");
 	}
 
-  @After
+  @AfterEach
 	public void tearDown() throws Exception {
 		MockitoAnnotations.openMocks(this).close();
 		service = null;
