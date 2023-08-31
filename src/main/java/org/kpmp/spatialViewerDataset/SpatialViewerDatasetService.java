@@ -50,6 +50,10 @@ public class SpatialViewerDatasetService  {
 		}
 	}
 
+    public SpatialViewerDatasetService() {
+        // So spring doesn't yell at us
+    }
+
 	@Autowired
 	public SpatialViewerDatasetService(
 		 SpatialViewerExternalLinkRepository externalLinkRepo,
@@ -62,18 +66,21 @@ public class SpatialViewerDatasetService  {
 
   public List<SpatialViewerDataset> getSpatialViewerDataset() throws Exception {
     List <SpatialViewerDataset> datasetsFinal = new ArrayList<>();
-    List <SpatialViewerFileDataset> datasets = fileRepo.findAll();
+    List <SpatialViewerFileDataset> datasets = new ArrayList<>();
     Map<String, SpatialViewerFileDataset> fileMap = new HashMap<>();
     Double maxReleaseVersion = fileRepo.max();
+    datasets.addAll(fileRepo.findAll());
     for (SpatialViewerFileDataset spatialViewerFileDataset : datasets){
-        Double releaseVersion = spatialViewerFileDataset.getReleaseVersion();
-         if (Double.compare(releaseVersion, maxReleaseVersion) == 0){
-            spatialViewerFileDataset.setReleaseVersionDisplay("Recently Released");
-         }else{
+        if(spatialViewerFileDataset.getReleaseVersion() != null){
+            if (Double.compare(spatialViewerFileDataset.getReleaseVersion(), maxReleaseVersion) == 0){
+                spatialViewerFileDataset.setReleaseVersionDisplay("Recently Released");
+            }
+        }else{
             spatialViewerFileDataset.setReleaseVersionDisplay(null);
-         }
-         fileMap.put(spatialViewerFileDataset.getDlFileId(), spatialViewerFileDataset);
+        }
+        fileMap.put(spatialViewerFileDataset.getDlFileId(), spatialViewerFileDataset);
     }
+         
     datasetsFinal.addAll(externalLinkRepo.findAll());
     datasetsFinal.addAll(fileMap.values());
     return datasetsFinal;
@@ -102,7 +109,7 @@ public class SpatialViewerDatasetService  {
 				endIndex = datasets.size();
 			else
 				endIndex = (i * 100) + 100;
-			List datasetSlice = datasets.subList(beginIndex, endIndex);
+			List<SpatialViewerDataset> datasetSlice = datasets.subList(beginIndex, endIndex);
 			HttpEntity<Object> entity = new HttpEntity<>(datasetSlice, headers);
 			ESResponse[] response = restTemplate.postForObject(enterpriseSearchHost + "/api/as/v1/engines/" + enterpriseSearchEngineName + "/documents",
 					entity, ESResponse[].class);

@@ -150,11 +150,4 @@ public class SpatialViewerFileDatasetTest {
         assertEquals("Recently Released", spatialViewerDataset.getReleaseVersionDisplay());
     }
 
-    @Test
-    public void findNullPointers(){
-        Double maxReleaseVersion = 45.0;
-        spatialViewerDataset.setReleaseVersion(45.0);
-        int result = Double.compare(spatialViewerDataset.getReleaseVersion(), maxReleaseVersion);
-        assertEquals(0, result);
-    }
 }

@@ -1,5 +1,6 @@
 package org.kpmp.spatialViewerDataset;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.kpmp.file.File;
 
@@ -237,7 +238,7 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
       return null;
     }
     
-    
+    @JsonIgnore
     public Double getReleaseVersion(){
         return releaseVersion;
     }
