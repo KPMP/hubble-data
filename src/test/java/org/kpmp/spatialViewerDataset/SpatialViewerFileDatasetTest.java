@@ -133,4 +133,10 @@ public class SpatialViewerFileDatasetTest {
         spatialViewerDataset.setRelatedFiles(files);
         assertEquals(files, spatialViewerDataset.getRelatedFiles());
     }
+
+    @Test
+    public void setFileNameSort() {
+        spatialViewerDataset.setFileName("this_file_name_has_thirty_seven_chrs_filename.docx");
+        assertEquals("filename.docx", spatialViewerDataset.getFileNameSort());
+    }
 }

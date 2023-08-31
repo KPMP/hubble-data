@@ -173,6 +173,11 @@ public class SpatialViewerExternalLinkDataset implements SpatialViewerDataset {
         return null;
     }
     @JsonIgnore
+    
+    public String  getFileNameSort() {
+        return null;
+    }
+    @JsonIgnore
 
     public int getFileId() {
         return (Integer) null;

@@ -11,11 +11,14 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
 import java.util.List;
 
 @Entity
 @Table(name = "sv_file_v")
 public class SpatialViewerFileDataset implements SpatialViewerDataset {
+    private static final int UUID_LENGTH = 37;
 
     @Id
     @Column(name = "file_id")
@@ -37,6 +40,9 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
     private String tissueSource;
     private String tissueType;
     private String level;
+
+    @Transient
+    private String fileNameSort;
 
     @JoinTable(
             name = "sv_related_files",
@@ -228,5 +234,19 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
     @JsonProperty("spatialviewerdataset")
     public Object getSpatialViewerDataset() {
       return null;
+    }
+
+    @JsonProperty("file_name_sort")
+    public String getFileNameSort() {
+        if(this.fileName == null || this.fileName.isEmpty()){
+            return null;
+        }else{
+            this.fileNameSort = fileName.substring(UUID_LENGTH, fileName.length());
+            return this.fileNameSort;
+        }
+    }
+
+    public void setFileNameSort(String fileNameSort) {
+        this.fileNameSort = fileNameSort;
     }
 }
