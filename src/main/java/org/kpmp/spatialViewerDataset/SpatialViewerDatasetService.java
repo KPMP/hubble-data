@@ -16,9 +16,10 @@ import java.util.List;
 import java.util.Map;
 import java.io.IOException;
 
+
 @Service
 public class SpatialViewerDatasetService  {
-
+    private static int EQUALITY_OPERATOR = 0;
 	@Value("${enterprise-search.host}")
 	private String enterpriseSearchHost;
 	@Value("${enterprise-search.engine.name}")
@@ -50,10 +51,6 @@ public class SpatialViewerDatasetService  {
 		}
 	}
 
-    public SpatialViewerDatasetService() {
-        // So spring doesn't yell at us
-    }
-
 	@Autowired
 	public SpatialViewerDatasetService(
 		 SpatialViewerExternalLinkRepository externalLinkRepo,
@@ -72,7 +69,7 @@ public class SpatialViewerDatasetService  {
     datasets.addAll(fileRepo.findAll());
     for (SpatialViewerFileDataset spatialViewerFileDataset : datasets){
         if(spatialViewerFileDataset.getReleaseVersion() != null){
-            if (Double.compare(spatialViewerFileDataset.getReleaseVersion(), maxReleaseVersion) == 0){
+            if (Double.compare(spatialViewerFileDataset.getReleaseVersion(), maxReleaseVersion) == EQUALITY_OPERATOR){
                 spatialViewerFileDataset.setReleaseVersionDisplay("Recently Released");
             }
         }else{
