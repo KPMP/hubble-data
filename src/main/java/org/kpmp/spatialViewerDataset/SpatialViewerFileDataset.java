@@ -261,6 +261,8 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
     public void setReleaseVersionDisplay(String releaseVersionDisplay) {
         this.releaseVersionDisplay = releaseVersionDisplay;
 
+    }
+    
     @JsonProperty("file_name_sort")
     public String getFileNameSort() {
         if(this.fileName == null || this.fileName.isEmpty()){
