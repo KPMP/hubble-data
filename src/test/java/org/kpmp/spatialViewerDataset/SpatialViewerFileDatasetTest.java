@@ -150,4 +150,8 @@ public class SpatialViewerFileDatasetTest {
         assertEquals("Recently Released", spatialViewerDataset.getReleaseVersionDisplay());
     }
 
+    public void setFileNameSort() {
+        spatialViewerDataset.setFileName("this_file_name_has_thirty_seven_chrs_filename.docx");
+        assertEquals("filename.docx", spatialViewerDataset.getFileNameSort());
+    }
 }

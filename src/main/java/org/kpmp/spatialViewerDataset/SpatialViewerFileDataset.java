@@ -19,6 +19,7 @@ import java.util.List;
 @Entity
 @Table(name = "sv_file_v")
 public class SpatialViewerFileDataset implements SpatialViewerDataset {
+    private static final int UUID_LENGTH = 37;
 
     @Id
     @Column(name = "file_id")
@@ -45,6 +46,9 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
     private String releaseVersionDisplay;
 
     
+
+    @Transient
+    private String fileNameSort;
 
     @JoinTable(
             name = "sv_related_files",
@@ -237,6 +241,7 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
     public Object getSpatialViewerDataset() {
       return null;
     }
+
     
     @JsonIgnore
     public Double getReleaseVersion(){
@@ -255,5 +260,18 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
 
     public void setReleaseVersionDisplay(String releaseVersionDisplay) {
         this.releaseVersionDisplay = releaseVersionDisplay;
+
+    @JsonProperty("file_name_sort")
+    public String getFileNameSort() {
+        if(this.fileName == null || this.fileName.isEmpty()){
+            return null;
+        }else{
+            this.fileNameSort = fileName.substring(UUID_LENGTH, fileName.length());
+            return this.fileNameSort;
+        }
+    }
+
+    public void setFileNameSort(String fileNameSort) {
+        this.fileNameSort = fileNameSort;
     }
 }
