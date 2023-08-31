@@ -98,4 +98,16 @@ public class SpatialViewerExternalLinkDatasetTest {
         spatialViewerExternalLink.setTissueType("12345");
         assertEquals("12345", spatialViewerExternalLink.getTissueType());
     }
+
+    @Test
+    public void setReleaseVersionDisplay(){
+        spatialViewerExternalLink.setReleaseVersionDisplay("Recently Released");
+        assertEquals("Recently Released", spatialViewerExternalLink.getReleaseVersionDisplay());
+    }
+
+    @Test
+    public void setReleaseVersion(){
+        spatialViewerExternalLink.setReleaseVersion(45.0);
+        assertEquals(45.0, spatialViewerExternalLink.getReleaseVersionDisplay());
+    }
 }
