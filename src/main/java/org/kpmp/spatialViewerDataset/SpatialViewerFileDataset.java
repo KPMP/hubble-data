@@ -242,7 +242,7 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
             return null;
         }else{
             this.fileNameSort = fileName.substring(UUID_LENGTH, fileName.length());
-            return this.fileNameSort;
+            return this.fileNameSort.toLowerCase();
         }
     }
 
