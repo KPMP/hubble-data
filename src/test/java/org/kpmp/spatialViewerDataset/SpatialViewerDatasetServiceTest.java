@@ -7,9 +7,9 @@ import static org.mockito.Mockito.when;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONException;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
@@ -36,7 +36,7 @@ public class SpatialViewerDatasetServiceTest {
   
 	private SpatialViewerDatasetService service;
 
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		MockitoAnnotations.openMocks(this);
 		service = new SpatialViewerDatasetService(externalLinkRepo, fileRepo, restTemplate, env);
@@ -44,7 +44,7 @@ public class SpatialViewerDatasetServiceTest {
 		ReflectionTestUtils.setField(service, "enterpriseSearchEngineName", "search-engine");
 	}
 
-  @After
+  @AfterEach
 	public void tearDown() throws Exception {
 		MockitoAnnotations.openMocks(this).close();
 		service = null;
@@ -81,11 +81,16 @@ public class SpatialViewerDatasetServiceTest {
 		SpatialViewerExternalLinkDataset spatialViewerDataset1 = new SpatialViewerExternalLinkDataset();
 		SpatialViewerExternalLinkDataset spatialViewerDataset2 = new SpatialViewerExternalLinkDataset();
 		SpatialViewerFileDataset spatialViewerDataset3 = new SpatialViewerFileDataset();
+        spatialViewerDataset3.setDlFileId("DlFileId");
+        spatialViewerDataset3.setReleaseVersion(45.0);
 		SpatialViewerFileDataset spatialViewerDataset4 = new SpatialViewerFileDataset();
+        spatialViewerDataset4.setReleaseVersion(34.0);
+        spatialViewerDataset4.setDlFileId("DlFileId2");
 		expectedResult1.add(spatialViewerDataset1);
 		expectedResult1.add(spatialViewerDataset2);
 		expectedResult2.add(spatialViewerDataset3);
 		expectedResult2.add(spatialViewerDataset4);
+        when(fileRepo.max()).thenReturn(34.0);
 		when(externalLinkRepo.findAll()).thenReturn(expectedResult1);
 		when(fileRepo.findAll()).thenReturn(expectedResult2);
 		results.addAll(expectedResult1);

@@ -1,21 +1,21 @@
 package org.kpmp.spatialViewerDataset;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class SpatialViewerExternalLinkDatasetTest {
 
     private SpatialViewerExternalLinkDataset spatialViewerExternalLink;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         spatialViewerExternalLink = new SpatialViewerExternalLinkDataset();
     }
 
-    @After
+    @AfterEach
     public void tearDown() throws Exception {
         spatialViewerExternalLink = null;
     }
@@ -97,5 +97,17 @@ public class SpatialViewerExternalLinkDatasetTest {
     public void getTissueType() {
         spatialViewerExternalLink.setTissueType("12345");
         assertEquals("12345", spatialViewerExternalLink.getTissueType());
+    }
+
+    @Test
+    public void setReleaseVersionDisplay(){
+        spatialViewerExternalLink.setReleaseVersionDisplay("Recently Released");
+        assertEquals("Recently Released", spatialViewerExternalLink.getReleaseVersionDisplay());
+    }
+
+    @Test
+    public void setReleaseVersion(){
+        spatialViewerExternalLink.setReleaseVersion(45.0);
+        assertEquals(45.0, spatialViewerExternalLink.getReleaseVersionDisplay());
     }
 }
