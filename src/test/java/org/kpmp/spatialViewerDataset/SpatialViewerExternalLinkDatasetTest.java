@@ -98,4 +98,10 @@ public class SpatialViewerExternalLinkDatasetTest {
         spatialViewerExternalLink.setTissueType("12345");
         assertEquals("12345", spatialViewerExternalLink.getTissueType());
     }
+
+    @Test
+    public void getParticipantIdSort() {
+        spatialViewerExternalLink.setRedcapId("123-4");
+        assertEquals(1234, spatialViewerExternalLink.getParticipantIdSort());
+    }
 }

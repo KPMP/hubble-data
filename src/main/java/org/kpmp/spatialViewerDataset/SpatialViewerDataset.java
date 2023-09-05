@@ -40,6 +40,8 @@ public interface SpatialViewerDataset {
   String getFileName();
 
   String getFileNameSort();
+
+  int getParticipantIdSort();
   
   String getDlFileId();
   
