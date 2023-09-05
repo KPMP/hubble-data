@@ -19,7 +19,7 @@ import java.io.IOException;
 
 @Service
 public class SpatialViewerDatasetService  {
-    private static int EQUALITY_OPERATOR = 0;
+    private static final int EQUALITY_OPERATOR = 0;
 	@Value("${enterprise-search.host}")
 	private String enterpriseSearchHost;
 	@Value("${enterprise-search.engine.name}")
