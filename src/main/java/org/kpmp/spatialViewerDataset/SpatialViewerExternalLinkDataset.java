@@ -32,6 +32,9 @@ public class SpatialViewerExternalLinkDataset implements SpatialViewerDataset {
     private String sex;
     private String tissueSource;
     private String tissueType;
+    private Double releaseVersion;
+    @Transient
+    private String releaseVersionDisplay;
 
     @Transient
     private int participantIdSort;
@@ -161,6 +164,24 @@ public class SpatialViewerExternalLinkDataset implements SpatialViewerDataset {
         this.tissueType = tissueType;
     }
 
+    @JsonIgnore
+    public Double getReleaseVersion(){
+        return releaseVersion;
+    }
+
+    public void setReleaseVersion(Double releaseVersion){
+        this.releaseVersion = releaseVersion;
+    }
+
+    @JsonProperty("releaseversion")
+    public String getReleaseVersionDisplay() {
+        return releaseVersionDisplay;
+    }
+
+    public void setReleaseVersionDisplay(String releaseVersionDisplay) {
+        this.releaseVersionDisplay = releaseVersionDisplay;
+    }
+
     @JsonProperty("dlfileid")
     public String getDlFileId() {
         return null;
@@ -205,5 +226,8 @@ public class SpatialViewerExternalLinkDataset implements SpatialViewerDataset {
 
     public String getLevel() {
         return null;
-    }    
+    }
+    
+    
+    
 }

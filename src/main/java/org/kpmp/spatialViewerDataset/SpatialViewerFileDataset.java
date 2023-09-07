@@ -1,5 +1,6 @@
 package org.kpmp.spatialViewerDataset;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.kpmp.file.File;
 
@@ -40,6 +41,11 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
     private String tissueSource;
     private String tissueType;
     private String level;
+    private Double releaseVersion;
+    @Transient
+    private String releaseVersionDisplay;
+
+    
 
     @Transient
     private String fileNameSort;
@@ -239,6 +245,27 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
       return null;
     }
 
+    
+    @JsonIgnore
+    public Double getReleaseVersion(){
+        return releaseVersion;
+    }
+
+    public void setReleaseVersion(Double releaseVersion){
+        this.releaseVersion = releaseVersion;
+    }
+
+    
+    @JsonProperty("releaseversion")
+    public String getReleaseVersionDisplay() {
+        return releaseVersionDisplay;
+    }
+
+    public void setReleaseVersionDisplay(String releaseVersionDisplay) {
+        this.releaseVersionDisplay = releaseVersionDisplay;
+
+    }
+    
     @JsonProperty("file_name_sort")
     public String getFileNameSort() {
         if(this.fileName == null || this.fileName.isEmpty()){
