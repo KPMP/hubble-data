@@ -7,7 +7,6 @@ import javax.persistence.Id;
 import javax.persistence.Column;
 
 import com.fasterxml.jackson.annotation.*;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.springframework.lang.Nullable;
 import org.kpmp.file.File;
 
@@ -36,6 +35,9 @@ public class SpatialViewerExternalLinkDataset implements SpatialViewerDataset {
     private Double releaseVersion;
     @Transient
     private String releaseVersionDisplay;
+
+    @Transient
+    private int participantIdSort;
 
     @JsonProperty("externallink")
     public String getExternalLink() {
@@ -195,12 +197,18 @@ public class SpatialViewerExternalLinkDataset implements SpatialViewerDataset {
         return null;
     }
     @JsonIgnore
-    
+
     public String  getFileNameSort() {
         return null;
     }
-    @JsonIgnore
 
+
+    @JsonProperty("participant_id_sort")
+    public int getParticipantIdSort() {
+        return Integer.parseInt(redcapId.replace("-", "").replace("[", "").replace("]", ""));
+    }
+
+    @JsonIgnore
     public int getFileId() {
         return (Integer) null;
     }

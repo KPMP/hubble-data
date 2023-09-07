@@ -32,6 +32,7 @@ type SpatialViewerDataset {
     externalLink: String # may be null
     releaseVersion: String
     fileNameSort: String
+    participantIdSort: Int
 }
 
 type SpatialViewerExternalLink {
@@ -48,4 +49,5 @@ type SpatialViewerExternalLink {
     sex: String
     tissueSource: String
     tissueType: String
+    participantIdSort: Int
 }

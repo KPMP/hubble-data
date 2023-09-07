@@ -100,6 +100,11 @@ public class SpatialViewerExternalLinkDatasetTest {
     }
 
     @Test
+    public void getParticipantIdSort() {
+        spatialViewerExternalLink.setRedcapId("123-4");
+        assertEquals(1234, spatialViewerExternalLink.getParticipantIdSort());
+
+    @Test
     public void setReleaseVersionDisplay(){
         spatialViewerExternalLink.setReleaseVersionDisplay("Recently Released");
         assertEquals("Recently Released", spatialViewerExternalLink.getReleaseVersionDisplay());
