@@ -53,6 +53,9 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
     @Transient
     private int participantIdSort;
 
+    @Transient
+    private String imageTypeSort;
+
     @JoinTable(
             name = "sv_related_files",
             joinColumns = @JoinColumn(
@@ -279,6 +282,11 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
     @JsonProperty("participant_id_sort")
     public int getParticipantIdSort() {
         return Integer.parseInt(redcapId.replace("-", "").replace("[", "").replace("]", ""));
+    }
+
+    @JsonProperty("image_type_sort")
+    public String getImageTypeSort() {
+        return this.imageType.toLowerCase();
     }
 
     public void setFileNameSort(String fileNameSort) {

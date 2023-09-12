@@ -103,6 +103,14 @@ public class SpatialViewerExternalLinkDatasetTest {
     public void getParticipantIdSort() {
         spatialViewerExternalLink.setRedcapId("123-4");
         assertEquals(1234, spatialViewerExternalLink.getParticipantIdSort());
+    }
+
+    @Test
+    public void getImageTypeSort() {
+        spatialViewerExternalLink.setImageType("AbCdEf");
+        assertEquals("abcdef", spatialViewerExternalLink.getImageTypeSort());
+    }        
+
 
     @Test
     public void setReleaseVersionDisplay(){
