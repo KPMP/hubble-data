@@ -39,6 +39,9 @@ public class SpatialViewerExternalLinkDataset implements SpatialViewerDataset {
     @Transient
     private int participantIdSort;
 
+    @Transient
+    private String imageTypeSort;
+
     @JsonProperty("externallink")
     public String getExternalLink() {
         return externalLink;
@@ -202,6 +205,11 @@ public class SpatialViewerExternalLinkDataset implements SpatialViewerDataset {
         return null;
     }
 
+
+    @JsonProperty("image_type_sort")
+    public String getImageTypeSort() {
+        return imageType.toLowerCase();
+    }
 
     @JsonProperty("participant_id_sort")
     public int getParticipantIdSort() {

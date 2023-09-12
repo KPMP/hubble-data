@@ -157,6 +157,12 @@ public class SpatialViewerFileDatasetTest {
     }
 
     @Test
+    public void getImageTypeSort() {
+        spatialViewerDataset.setImageType("AbCdEf");
+        assertEquals("abcdef", spatialViewerDataset.getImageTypeSort());
+    }
+
+    @Test
     public void getParticipantIdSort() {
         spatialViewerDataset.setRedcapId("123-4");
         assertEquals(1234, spatialViewerDataset.getParticipantIdSort());
