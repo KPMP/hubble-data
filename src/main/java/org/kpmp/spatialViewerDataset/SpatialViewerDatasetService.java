@@ -64,9 +64,12 @@ public class SpatialViewerDatasetService  {
   public List<SpatialViewerDataset> getSpatialViewerDataset() throws Exception {
     List <SpatialViewerDataset> datasetsFinal = new ArrayList<>();
     List <SpatialViewerFileDataset> datasets = new ArrayList<>();
+    List <SpatialViewerExternalLinkDataset> externalLinkList = new ArrayList<>();
     Map<String, SpatialViewerFileDataset> fileMap = new HashMap<>();
+    Map<String, SpatialViewerExternalLinkDataset> linkMap = new HashMap<>();
     Double maxReleaseVersion = fileRepo.max();
     datasets.addAll(fileRepo.findAll());
+    externalLinkList.addAll(externalLinkRepo.findAll());
     for (SpatialViewerFileDataset spatialViewerFileDataset : datasets){
         if(spatialViewerFileDataset.getReleaseVersion() != null){
             if (Double.compare(spatialViewerFileDataset.getReleaseVersion(), maxReleaseVersion) == EQUALITY_OPERATOR){
@@ -77,8 +80,19 @@ public class SpatialViewerDatasetService  {
         }
         fileMap.put(spatialViewerFileDataset.getDlFileId(), spatialViewerFileDataset);
     }
+
+    for(SpatialViewerExternalLinkDataset externalLinkDataset : externalLinkList){
+        if(externalLinkDataset.getReleaseVersion() != null){
+            if(Double.compare(externalLinkDataset.getReleaseVersion(), maxReleaseVersion) == EQUALITY_OPERATOR){
+                externalLinkDataset.setReleaseVersionDisplay("Recently Released");
+            }
+        }else{
+            externalLinkDataset.setReleaseVersionDisplay(null);
+        }
+        linkMap.put(externalLinkDataset.getExternalLink(), externalLinkDataset);
+    }
          
-    datasetsFinal.addAll(externalLinkRepo.findAll());
+    datasetsFinal.addAll(linkMap.values());
     datasetsFinal.addAll(fileMap.values());
     return datasetsFinal;
 }
