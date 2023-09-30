@@ -38,12 +38,20 @@ public interface SpatialViewerDataset {
   String getPackageId();
   
   String getFileName();
+
+  String getFileNameSort();
+
+  int getParticipantIdSort();
+
+  String getImageTypeSort();
   
   String getDlFileId();
   
   int getFileId();  
   
   String getExternalLink();
+
+  Double getReleaseVersion();
 
 }
 

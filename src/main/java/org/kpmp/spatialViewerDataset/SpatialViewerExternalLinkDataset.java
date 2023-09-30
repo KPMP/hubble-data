@@ -2,11 +2,11 @@ package org.kpmp.spatialViewerDataset;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.persistence.Id;
 import javax.persistence.Column;
 
 import com.fasterxml.jackson.annotation.*;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.springframework.lang.Nullable;
 import org.kpmp.file.File;
 
@@ -32,6 +32,15 @@ public class SpatialViewerExternalLinkDataset implements SpatialViewerDataset {
     private String sex;
     private String tissueSource;
     private String tissueType;
+    private Double releaseVersion;
+    @Transient
+    private String releaseVersionDisplay;
+
+    @Transient
+    private int participantIdSort;
+
+    @Transient
+    private String imageTypeSort;
 
     @JsonProperty("externallink")
     public String getExternalLink() {
@@ -158,6 +167,24 @@ public class SpatialViewerExternalLinkDataset implements SpatialViewerDataset {
         this.tissueType = tissueType;
     }
 
+    @JsonIgnore
+    public Double getReleaseVersion(){
+        return releaseVersion;
+    }
+
+    public void setReleaseVersion(Double releaseVersion){
+        this.releaseVersion = releaseVersion;
+    }
+
+    @JsonProperty("releaseversion")
+    public String getReleaseVersionDisplay() {
+        return releaseVersionDisplay;
+    }
+
+    public void setReleaseVersionDisplay(String releaseVersionDisplay) {
+        this.releaseVersionDisplay = releaseVersionDisplay;
+    }
+
     @JsonProperty("dlfileid")
     public String getDlFileId() {
         return null;
@@ -174,6 +201,22 @@ public class SpatialViewerExternalLinkDataset implements SpatialViewerDataset {
     }
     @JsonIgnore
 
+    public String  getFileNameSort() {
+        return null;
+    }
+
+
+    @JsonProperty("image_type_sort")
+    public String getImageTypeSort() {
+        return imageType.toLowerCase();
+    }
+
+    @JsonProperty("participant_id_sort")
+    public int getParticipantIdSort() {
+        return Integer.parseInt(redcapId.replace("-", "").replace("[", "").replace("]", ""));
+    }
+
+    @JsonIgnore
     public int getFileId() {
         return (Integer) null;
     }
@@ -191,5 +234,8 @@ public class SpatialViewerExternalLinkDataset implements SpatialViewerDataset {
 
     public String getLevel() {
         return null;
-    }    
+    }
+    
+    
+    
 }

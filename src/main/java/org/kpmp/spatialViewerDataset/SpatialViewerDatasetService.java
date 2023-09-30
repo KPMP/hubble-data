@@ -11,12 +11,15 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.io.IOException;
+
 
 @Service
 public class SpatialViewerDatasetService  {
-
+    private static final int EQUALITY_OPERATOR = 0;
 	@Value("${enterprise-search.host}")
 	private String enterpriseSearchHost;
 	@Value("${enterprise-search.engine.name}")
@@ -59,10 +62,39 @@ public class SpatialViewerDatasetService  {
 	}
 
   public List<SpatialViewerDataset> getSpatialViewerDataset() throws Exception {
-    List <SpatialViewerDataset> datasets = new ArrayList<>();
-    datasets.addAll(externalLinkRepo.findAll());
+    List <SpatialViewerDataset> datasetsFinal = new ArrayList<>();
+    List <SpatialViewerFileDataset> datasets = new ArrayList<>();
+    List <SpatialViewerExternalLinkDataset> externalLinkList = new ArrayList<>();
+    Map<String, SpatialViewerFileDataset> fileMap = new HashMap<>();
+    Map<String, SpatialViewerExternalLinkDataset> linkMap = new HashMap<>();
+    Double maxReleaseVersion = fileRepo.max();
     datasets.addAll(fileRepo.findAll());
-    return datasets;
+    externalLinkList.addAll(externalLinkRepo.findAll());
+    for (SpatialViewerFileDataset spatialViewerFileDataset : datasets){
+        if(spatialViewerFileDataset.getReleaseVersion() != null){
+            if (Double.compare(spatialViewerFileDataset.getReleaseVersion(), maxReleaseVersion) == EQUALITY_OPERATOR){
+                spatialViewerFileDataset.setReleaseVersionDisplay("Recently Released");
+            }
+        }else{
+            spatialViewerFileDataset.setReleaseVersionDisplay(null);
+        }
+        fileMap.put(spatialViewerFileDataset.getDlFileId(), spatialViewerFileDataset);
+    }
+
+    for(SpatialViewerExternalLinkDataset externalLinkDataset : externalLinkList){
+        if(externalLinkDataset.getReleaseVersion() != null){
+            if(Double.compare(externalLinkDataset.getReleaseVersion(), maxReleaseVersion) == EQUALITY_OPERATOR){
+                externalLinkDataset.setReleaseVersionDisplay("Recently Released");
+            }
+        }else{
+            externalLinkDataset.setReleaseVersionDisplay(null);
+        }
+        linkMap.put(externalLinkDataset.getExternalLink(), externalLinkDataset);
+    }
+         
+    datasetsFinal.addAll(linkMap.values());
+    datasetsFinal.addAll(fileMap.values());
+    return datasetsFinal;
 }
 
 	public List<SpatialViewerFileDataset> getSpatialViewerFileDataset() throws IOException, Exception {
@@ -88,7 +120,7 @@ public class SpatialViewerDatasetService  {
 				endIndex = datasets.size();
 			else
 				endIndex = (i * 100) + 100;
-			List datasetSlice = datasets.subList(beginIndex, endIndex);
+			List<SpatialViewerDataset> datasetSlice = datasets.subList(beginIndex, endIndex);
 			HttpEntity<Object> entity = new HttpEntity<>(datasetSlice, headers);
 			ESResponse[] response = restTemplate.postForObject(enterpriseSearchHost + "/api/as/v1/engines/" + enterpriseSearchEngineName + "/documents",
 					entity, ESResponse[].class);

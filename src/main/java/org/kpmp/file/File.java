@@ -1,5 +1,6 @@
 package org.kpmp.file;
 
+import com.fasterxml.jackson.annotation.*;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -25,6 +26,7 @@ public class File {
     @Column(name = "file_size")
     private int fileSize;
 
+    @JsonProperty("fileid")
     public int getFileId() {
         return fileId;
     }
@@ -32,7 +34,7 @@ public class File {
     public void setFileId(int fileId) {
         this.fileId = fileId;
     }
-
+    @JsonProperty("dlfileid")
     public String getDlFileId() {
         return dlFileId;
     }
@@ -41,6 +43,7 @@ public class File {
         this.dlFileId = dlFileId;
     }
 
+    @JsonProperty("filename")
     public String getFileName() {
         return fileName;
     }
@@ -49,6 +52,7 @@ public class File {
         this.fileName = fileName;
     }
 
+    @JsonProperty("packageid")
     public String getPackageId() {
         return packageId;
     }
@@ -57,6 +61,7 @@ public class File {
         this.packageId = packageId;
     }
 
+    @JsonProperty("filesize")
     public int getFileSize() {
         return fileSize;
     }

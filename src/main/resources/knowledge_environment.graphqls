@@ -30,6 +30,10 @@ type SpatialViewerDataset {
     level: String # may be null
     relatedFiles: [File] # may be null
     externalLink: String # may be null
+    releaseVersion: String
+    fileNameSort: String
+    participantIdSort: Int
+    imageTypeSort: String
 }
 
 type SpatialViewerExternalLink {
@@ -46,4 +50,6 @@ type SpatialViewerExternalLink {
     sex: String
     tissueSource: String
     tissueType: String
+    participantIdSort: Int
+    imageTypeSort: String
 }
