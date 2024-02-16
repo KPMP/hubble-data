@@ -21,7 +21,7 @@ apply plugin: 'io.spring.dependency-management'
 
 jar {
     baseName='hubble-data'
-    version= '1.0'
+    version= '2.3'
 }
 
 repositories {
@@ -74,7 +74,11 @@ def getTagInfo() {
         }
       } catch (e) {
         }
-        return gitBranch
+        if (gitBranch == "develop" || gitBranch == "master"){
+          return "${jar.version}"
+        }else{
+          return gitBranch
+        }
     }
 }
 
