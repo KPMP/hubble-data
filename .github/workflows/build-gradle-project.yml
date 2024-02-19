@@ -1,4 +1,4 @@
-name: Build pegasus-data docker image
+name: Build hubble-data docker image
 
 on: 
   push:
