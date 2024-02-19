@@ -1,10 +1,12 @@
-name: Build hubble-data docker image
+name: Build pegasus-data docker image
 
 on: 
   push:
 
 jobs:
   build-gradle-project:
+    env:
+      IMAGE_TAG: 2.3
     runs-on: ubuntu-latest
     steps:
       - name: Get branch names
@@ -34,5 +36,14 @@ jobs:
 
       - name: Run build with Gradle Wrapper
         run: |
-          ./gradlew build docker
+         ./gradlew build docker
+
+      - name: Push to Docker Hub if branch is develop
+        if: steps.branch-names.outputs.current_branch == 'develop'
+        run: | 
+         docker push "kingstonduo/hubble-data:$IMAGE_TAG"
+        
+      - name: Push to Docker Hub if branch is not develop
+        if: ${{ !steps.branch-names.outputs.current_branch == 'develop' }}
+        run: |
           docker push "kingstonduo/hubble-data:${{ steps.branch-names.outputs.current_branch }}"
