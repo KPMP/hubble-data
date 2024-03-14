@@ -26,6 +26,8 @@ public class SpatialViewerDatasetService  {
 	private String enterpriseSearchEngineName;
 	private SpatialViewerExternalLinkRepository externalLinkRepo;
 	private SpatialViewerFileDatasetRepository fileRepo;
+	@Value("${recently-released-date}")
+	private String recentlyReleasedDate;
 
 	private RestTemplate restTemplate;
 	private Environment env;
@@ -73,7 +75,7 @@ public class SpatialViewerDatasetService  {
     for (SpatialViewerFileDataset spatialViewerFileDataset : datasets){
         if(spatialViewerFileDataset.getReleaseVersion() != null){
             if (Double.compare(spatialViewerFileDataset.getReleaseVersion(), maxReleaseVersion) == EQUALITY_OPERATOR){
-                spatialViewerFileDataset.setReleaseVersionDisplay("Recently Released");
+                spatialViewerFileDataset.setReleaseVersionDisplay("Recently Released - " + recentlyReleasedDate);
             }
         }else{
             spatialViewerFileDataset.setReleaseVersionDisplay(null);
@@ -84,7 +86,7 @@ public class SpatialViewerDatasetService  {
     for(SpatialViewerExternalLinkDataset externalLinkDataset : externalLinkList){
         if(externalLinkDataset.getReleaseVersion() != null){
             if(Double.compare(externalLinkDataset.getReleaseVersion(), maxReleaseVersion) == EQUALITY_OPERATOR){
-                externalLinkDataset.setReleaseVersionDisplay("Recently Released");
+                externalLinkDataset.setReleaseVersionDisplay("Recently Released - " + recentlyReleasedDate);
             }
         }else{
             externalLinkDataset.setReleaseVersionDisplay(null);
