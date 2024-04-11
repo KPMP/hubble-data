@@ -26,9 +26,8 @@ public class SpatialViewerDatasetService  {
 	private String enterpriseSearchEngineName;
 	private SpatialViewerExternalLinkRepository externalLinkRepo;
 	private SpatialViewerFileDatasetRepository fileRepo;
-    @Value ("${recently-released-date}")
+    @Value("${recently-released-date}")
     private String recentlyReleasedDate;
-
 	private RestTemplate restTemplate;
 	private Environment env;
 
