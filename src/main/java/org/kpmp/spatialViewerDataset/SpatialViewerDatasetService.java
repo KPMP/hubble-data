@@ -26,8 +26,8 @@ public class SpatialViewerDatasetService  {
 	private String enterpriseSearchEngineName;
 	private SpatialViewerExternalLinkRepository externalLinkRepo;
 	private SpatialViewerFileDatasetRepository fileRepo;
-	@Value("${recently-released-date}")
-	private String recentlyReleasedDate;
+    @Value ("${recently-released-date}")
+    private String recentlyReleasedDate;
 
 	private RestTemplate restTemplate;
 	private Environment env;
@@ -69,7 +69,16 @@ public class SpatialViewerDatasetService  {
     List <SpatialViewerExternalLinkDataset> externalLinkList = new ArrayList<>();
     Map<String, SpatialViewerFileDataset> fileMap = new HashMap<>();
     Map<String, SpatialViewerExternalLinkDataset> linkMap = new HashMap<>();
-    Double maxReleaseVersion = fileRepo.max();
+    Double maxFileReleaseVersion = fileRepo.max();
+    Double maxLinkReleaseVersion = externalLinkRepo.max();
+    Double maxReleaseVersion = 0.00;
+    if(maxFileReleaseVersion > maxLinkReleaseVersion){
+        maxReleaseVersion = maxFileReleaseVersion;
+    }else if(maxFileReleaseVersion == maxLinkReleaseVersion){
+        maxReleaseVersion = maxFileReleaseVersion;
+    }else{
+        maxReleaseVersion = maxLinkReleaseVersion;
+    }
     datasets.addAll(fileRepo.findAll());
     externalLinkList.addAll(externalLinkRepo.findAll());
     for (SpatialViewerFileDataset spatialViewerFileDataset : datasets){
