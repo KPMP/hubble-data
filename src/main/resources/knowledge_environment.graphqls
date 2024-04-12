@@ -52,4 +52,5 @@ type SpatialViewerExternalLink {
     tissueType: String
     participantIdSort: Int
     imageTypeSort: String
+    releaseVersion: String
 }

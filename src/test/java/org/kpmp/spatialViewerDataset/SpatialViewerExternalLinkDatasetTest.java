@@ -119,8 +119,10 @@ public class SpatialViewerExternalLinkDatasetTest {
     }
 
     @Test
-    public void setReleaseVersion(){
-        spatialViewerExternalLink.setReleaseVersion(45.0);
-        assertEquals(45.0, spatialViewerExternalLink.getReleaseVersionDisplay());
+    public void setReleaseVerison(){
+        Double expected = 56.0;
+        spatialViewerExternalLink.setReleaseVersion(56.0);
+        assertEquals(expected, spatialViewerExternalLink.getReleaseVersion());
     }
+
 }
