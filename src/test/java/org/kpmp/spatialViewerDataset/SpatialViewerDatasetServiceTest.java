@@ -11,7 +11,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpEntity;
@@ -42,6 +41,7 @@ public class SpatialViewerDatasetServiceTest {
 		service = new SpatialViewerDatasetService(externalLinkRepo, fileRepo, restTemplate, env);
 		ReflectionTestUtils.setField(service, "enterpriseSearchHost", "host");
 		ReflectionTestUtils.setField(service, "enterpriseSearchEngineName", "search-engine");
+        ReflectionTestUtils.setField(service, "recentlyReleasedDate", "release-date");
 	}
 
   @AfterEach

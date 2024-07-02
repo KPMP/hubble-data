@@ -6,7 +6,7 @@ on:
 jobs:
   build-gradle-project:
     env:
-      IMAGE_TAG: 2.3
+      IMAGE_TAG: 2.4
     runs-on: ubuntu-latest
     steps:
       - name: Get branch names
@@ -44,6 +44,6 @@ jobs:
          docker push "kingstonduo/hubble-data:$IMAGE_TAG"
         
       - name: Push to Docker Hub if branch is not develop
-        if: ${{ !steps.branch-names.outputs.current_branch == 'develop' }}
+        if: steps.branch-names.outputs.current_branch != 'develop'
         run: |
           docker push "kingstonduo/hubble-data:${{ steps.branch-names.outputs.current_branch }}"
