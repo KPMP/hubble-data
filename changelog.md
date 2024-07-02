@@ -2,7 +2,8 @@
 
 ## Release 2.4 [unreleased]
 Brief summary of what's in this release:
-
+- fixed build action to tag image correctly
+- if only new sv data, will still tag as "Recenlty Released"
 
 ### Breaking changes
 
