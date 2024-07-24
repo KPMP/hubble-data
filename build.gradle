@@ -3,50 +3,50 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.6.3")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:3.2.5")
     }
 }
 
 plugins {
-    id 'com.palantir.docker' version '0.22.1'
+    id 'com.palantir.docker' version '0.35.0'
+    id 'org.springframework.boot' version '3.2.5'
 }
 
 group = 'kingstonduo'
+version = 2.0
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
+apply plugin: 'com.palantir.docker'
 
-jar {
-    baseName='hubble-data'
-    version= '2.5'
-}
 
 repositories {
     mavenCentral()
 }
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+sourceCompatibility = '21'
+targetCompatibility = '21'
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-web:2.6.3'
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.6.3'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test:2.6.3'
-    testImplementation 'org.springframework:spring-test:5.0.5.RELEASE'
-    implementation 'commons-io:commons-io:2.6'
-    implementation 'mysql:mysql-connector-java:8.0.15'
-    implementation 'org.apache.commons:commons-compress:1.17'
-    implementation 'org.apache.commons:commons-text:1.7'
-    implementation 'com.graphql-java:graphql-spring-boot-starter:5.0.2'
-    implementation 'com.graphql-java:graphiql-spring-boot-starter:5.0.2'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'commons-io:commons-io:2.16.1' 
+    implementation 'com.mysql:mysql-connector-j:9.0.0'
+    implementation 'org.apache.commons:commons-compress:1.26.2'
+	implementation 'org.apache.commons:commons-text:1.12.0'
+    implementation 'com.graphql-java-kickstart:graphql-spring-boot-starter:5.0.3'
+    implementation 'com.graphql-java-kickstart:graphql-java-tools:5.4.0'
+    implementation 'org.springframework.graphql:spring-graphql'
+    implementation 'jakarta.persistence:jakarta.persistence-api:3.1.0'
     implementation 'com.google.api-client:google-api-client:2.2.0'
-    implementation 'com.graphql-java:graphql-java-tools:5.2.4'
+    implementation 'org.springframework.boot:spring-boot-starter-cache'
     testImplementation 'org.mockito:mockito-core'
-    implementation 'org.springframework.boot:spring-boot-starter-cache:2.6.3'
-    testImplementation 'junit:junit:4.12'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation('org.mockito:mockito-junit-jupiter:3.12.4')
+    testImplementation 'org.springframework:spring-test:6.1.11'
 }
 
 springBoot {
@@ -75,7 +75,7 @@ def getCurrentGitBranch() {
       } catch (e) {
         }
         if (gitBranch == "develop" || gitBranch == "master"){
-          return jar.version
+          return project.version
         }else{
           return gitBranch
         }
@@ -83,7 +83,7 @@ def getCurrentGitBranch() {
 }
 
 docker {
-    name "kingstonduo/${jar.baseName}:" + getCurrentGitBranch()
+    name "kingstonduo/hubble-data:" + getCurrentGitBranch()
     copySpec.from(tasks.unpack.outputs).into("dependency")
     buildArgs(['DEPENDENCY': "dependency"])
 }
