@@ -24,7 +24,7 @@ public class File {
     private String packageId;
 
     @Column(name = "file_size")
-    private int fileSize;
+    private Long fileSize;
 
     @JsonProperty("fileid")
     public int getFileId() {
@@ -62,11 +62,11 @@ public class File {
     }
 
     @JsonProperty("filesize")
-    public int getFileSize() {
+    public Long getFileSize() {
         return fileSize;
     }
 
-    public void setFileSize(int fileSize) {
+    public void setFileSize(Long fileSize) {
         this.fileSize = fileSize;
     }
 }
