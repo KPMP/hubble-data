@@ -8,6 +8,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -131,7 +132,8 @@ public class SpatialViewerDatasetService  {
 			else
 				endIndex = (i * 100) + 100;
 			List<SpatialViewerDataset> datasetSlice = datasets.subList(beginIndex, endIndex);
-			HttpEntity<Object> entity = new HttpEntity<>(datasetSlice, headers);
+			String json = new ObjectMapper().writeValueAsString(datasetSlice);
+			HttpEntity<Object> entity = new HttpEntity<>(json, headers);
 			ESResponse[] response = restTemplate.postForObject(enterpriseSearchHost + "/api/as/v1/engines/" + enterpriseSearchEngineName + "/documents",
 					entity, ESResponse[].class);
 			Collections.addAll(responses, response);

@@ -4,15 +4,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.kpmp.file.File;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
-import javax.persistence.Transient;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 
 import java.util.List;
 
@@ -24,14 +24,13 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
     @Id
     @Column(name = "file_id")
     private int fileId;
+    private String configType;
+    private String imageType;
+    private String dataType;
     private String dlFileId;
     private String fileName;
     private String packageId;
     private Long fileSize;
-    private String configType;
-    private String imageType;
-    private String dataType;
-    private String spectrackSampleId;
     private int participantId;
     private String redcapId;
     private String age;
@@ -40,12 +39,12 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
     private String sex;
     private String tissueSource;
     private String tissueType;
+    private String spectrackSampleId;
     private String level;
     private Double releaseVersion;
+    
     @Transient
     private String releaseVersionDisplay;
-
-    
 
     @Transient
     private String fileNameSort;

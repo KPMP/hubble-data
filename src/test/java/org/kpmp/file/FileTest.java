@@ -46,7 +46,7 @@ class FileTest {
 
     @Test
     void setFileSize() {
-        file.setFileSize(12345);
-        assertEquals(12345, file.getFileSize());
+        file.setFileSize((long) 1234123421);
+        assertEquals(1234123421, file.getFileSize());
     }
 }

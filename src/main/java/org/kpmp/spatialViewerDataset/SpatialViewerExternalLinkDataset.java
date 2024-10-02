@@ -1,10 +1,10 @@
 package org.kpmp.spatialViewerDataset;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.Transient;
-import javax.persistence.Id;
-import javax.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
+import jakarta.persistence.Id;
+import jakarta.persistence.Column;
 
 import com.fasterxml.jackson.annotation.*;
 import org.springframework.lang.Nullable;
