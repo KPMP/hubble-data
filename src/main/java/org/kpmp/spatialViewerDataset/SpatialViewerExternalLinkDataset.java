@@ -31,7 +31,7 @@ public class SpatialViewerExternalLinkDataset implements SpatialViewerDataset {
     private String sampleType;
     private String sex;
     private String tissueSource;
-    private String tissueType;
+    private String enrollmentCategory;
     private Double releaseVersion;
     @Transient
     private String releaseVersionDisplay;
@@ -158,13 +158,13 @@ public class SpatialViewerExternalLinkDataset implements SpatialViewerDataset {
     }
 
     @Nullable
-    @JsonProperty("tissuetype")
-    public String getTissueType(){
-        return tissueType;
+    @JsonProperty("enrollmentcategory")
+    public String getEnrollmentCategory(){
+        return enrollmentCategory;
     }
 
-    public void setTissueType(String tissueType){
-        this.tissueType = tissueType;
+    public void setEnrollmentCategory(String enrollmentCategory){
+        this.enrollmentCategory = enrollmentCategory;
     }
 
     @JsonIgnore

@@ -11,7 +11,7 @@ public interface SpatialViewerDataset {
   
   String getSpectrackSampleId();
   
-  String getTissueType();
+  String getEnrollmentCategory();
     
   String getTissueSource();
   

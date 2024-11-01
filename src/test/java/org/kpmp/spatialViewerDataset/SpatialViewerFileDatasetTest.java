@@ -112,9 +112,9 @@ public class SpatialViewerFileDatasetTest {
     }
 
     @Test
-    public void setTissueType() {
-        spatialViewerDataset.setTissueType("ttype");
-        assertEquals("ttype", spatialViewerDataset.getTissueType());
+    public void setEnrollmentCategory() {
+        spatialViewerDataset.setEnrollmentCategory("ttype");
+        assertEquals("ttype", spatialViewerDataset.getEnrollmentCategory());
     }
 
     @Test

@@ -25,7 +25,7 @@ type SpatialViewerDataset {
     sampleType: String
     sex: String
     tissueSource: String
-    tissueType: String
+    enrollmentCategory: String
     spectrackSampleId: String
     level: String # may be null
     relatedFiles: [File] # may be null
@@ -49,7 +49,7 @@ type SpatialViewerExternalLink {
     sampleType: String
     sex: String
     tissueSource: String
-    tissueType: String
+    enrollmentCategory: String
     participantIdSort: Int
     imageTypeSort: String
     releaseVersion: String
