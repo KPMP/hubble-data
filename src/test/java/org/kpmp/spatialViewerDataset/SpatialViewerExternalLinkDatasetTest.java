@@ -94,9 +94,9 @@ public class SpatialViewerExternalLinkDatasetTest {
     }
 
     @Test
-    public void getTissueType() {
-        spatialViewerExternalLink.setTissueType("12345");
-        assertEquals("12345", spatialViewerExternalLink.getTissueType());
+    public void getEnrollmentCategory() {
+        spatialViewerExternalLink.setEnrollmentCategory("12345");
+        assertEquals("12345", spatialViewerExternalLink.getEnrollmentCategory());
     }
 
     @Test

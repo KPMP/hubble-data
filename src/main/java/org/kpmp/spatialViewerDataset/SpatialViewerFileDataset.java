@@ -38,7 +38,7 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
     private String sampleType;
     private String sex;
     private String tissueSource;
-    private String tissueType;
+    private String enrollmentCategory;
     private String spectrackSampleId;
     private String level;
     private Double releaseVersion;
@@ -201,13 +201,13 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
         this.tissueSource = tissueSource;
     }
 
-    @JsonProperty("tissuetype")
-    public String getTissueType() {
-        return tissueType;
+    @JsonProperty("enrollmentcategory")
+    public String getEnrollmentCategory() {
+        return enrollmentCategory;
     }
 
-    public void setTissueType(String tissueType) {
-        this.tissueType = tissueType;
+    public void setEnrollmentCategory(String enrollmentCategory) {
+        this.enrollmentCategory = enrollmentCategory;
     }
 
     @JsonProperty("spectracksampleid")
