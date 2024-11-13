@@ -132,7 +132,7 @@ public class SpatialViewerFileDatasetTest {
     @Test
     public void setRelatedFiles() {
         File file = new File();
-        List files = Arrays.asList(file);
+        List<File> files = Arrays.asList(file);
         spatialViewerDataset.setRelatedFiles(files);
         assertEquals(files, spatialViewerDataset.getRelatedFiles());
     }
@@ -167,4 +167,77 @@ public class SpatialViewerFileDatasetTest {
         spatialViewerDataset.setRedcapId("123-4");
         assertEquals(1234, spatialViewerDataset.getParticipantIdSort());
     }
+
+    @Test
+    public void getPrimaryAdjudicatedCategory() {
+        spatialViewerDataset.setPrimaryAdjudicatedCategory("TestCategory");
+        assertEquals("TestCategory", spatialViewerDataset.getPrimaryAdjudicatedCategory());
+    }
+
+    @Test
+    public void getKdigoStage() {
+        spatialViewerDataset.setKdigoStage("Stage 3");
+        assertEquals("Stage 3", spatialViewerDataset.getKdigoStage());
+    }
+
+    @Test
+    public void getBaselineEgfr() {
+        spatialViewerDataset.setBaselineEgfr("60");
+        assertEquals("60", spatialViewerDataset.getBaselineEgfr());
+    }
+
+    @Test
+    public void getProteinuria() {
+        spatialViewerDataset.setProteinuria("High");
+        assertEquals("High", spatialViewerDataset.getProteinuria());
+    }
+
+    @Test
+    public void getA1c() {
+        spatialViewerDataset.setA1c("5.6");
+        assertEquals("5.6", spatialViewerDataset.getA1c());
+    }
+
+    @Test
+    public void getAlbuminuria() {
+        spatialViewerDataset.setAlbuminuria("Moderate");
+        assertEquals("Moderate", spatialViewerDataset.getAlbuminuria());
+    }
+
+    @Test
+    public void getDiabetesHistory() {
+        spatialViewerDataset.setDiabetesHistory("DoN't KNow");
+        assertEquals("Don't Know", spatialViewerDataset.getDiabetesHistory());
+    }
+
+    @Test
+    public void getDiabetesDuration() {
+        spatialViewerDataset.setDiabetesDuration("10 years");
+        assertEquals("10 years", spatialViewerDataset.getDiabetesDuration());
+    }
+
+    @Test
+    public void getHypertensionHistory() {
+        spatialViewerDataset.setHypertensionHistory("dOn't KnoW");
+        assertEquals("Don't Know", spatialViewerDataset.getHypertensionHistory());
+    }
+
+    @Test
+    public void getHypertensionDuration() {
+        spatialViewerDataset.setHypertensionDuration("5 years");
+        assertEquals("5 years", spatialViewerDataset.getHypertensionDuration());
+    }
+
+    @Test
+    public void getOnRaasBlockade() {
+        spatialViewerDataset.setOnRaasBlockade("Yes");
+        assertEquals("Yes", spatialViewerDataset.getOnRaasBlockade());
+    }
+
+    @Test
+    public void getRace() {
+        spatialViewerDataset.setRace("Asian");
+        assertEquals("Asian", spatialViewerDataset.getRace());
+    }
+
 }

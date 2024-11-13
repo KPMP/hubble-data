@@ -125,4 +125,89 @@ public class SpatialViewerExternalLinkDatasetTest {
         assertEquals(expected, spatialViewerExternalLink.getReleaseVersion());
     }
 
+    @Test
+    public void setPrimaryAdjudicatedCategory(){
+        String expected = "TestCategory";
+        spatialViewerExternalLink.setPrimaryAdjudicatedCategory(expected);
+        assertEquals(expected, spatialViewerExternalLink.getPrimaryAdjudicatedCategory());
+    }
+
+    @Test
+    public void setKdigoStage(){
+        String expected = "Stage 3";
+        spatialViewerExternalLink.setKdigoStage(expected);
+        assertEquals(expected, spatialViewerExternalLink.getKdigoStage());
+    }
+
+    @Test
+    public void setBaselineEgfr(){
+        String expected = "60";
+        spatialViewerExternalLink.setBaselineEgfr(expected);
+        assertEquals(expected, spatialViewerExternalLink.getBaselineEgfr());
+    }
+
+    @Test
+    public void setProteinuria(){
+        String expected = "High";
+        spatialViewerExternalLink.setProteinuria(expected);
+        assertEquals(expected, spatialViewerExternalLink.getProteinuria());
+    }
+
+    @Test
+    public void setA1c(){
+        String expected = "5.6";
+        spatialViewerExternalLink.setA1c(expected);
+        assertEquals(expected, spatialViewerExternalLink.getA1c());
+    }
+
+    @Test
+    public void setAlbuminuria(){
+        String expected = "Moderate";
+        spatialViewerExternalLink.setAlbuminuria(expected);
+        assertEquals(expected, spatialViewerExternalLink.getAlbuminuria());
+    }
+
+    @Test
+    public void setDiabetesHistory(){
+        String expected = "Don'T KnOw";
+        spatialViewerExternalLink.setDiabetesHistory(expected);
+        assertEquals("Don't Know", spatialViewerExternalLink.getDiabetesHistory());
+    }
+
+    @Test
+    public void setDiabetesDuration(){
+        String expected = "10 years";
+        spatialViewerExternalLink.setDiabetesDuration(expected);
+        assertEquals(expected, spatialViewerExternalLink.getDiabetesDuration());
+    }
+
+    @Test
+    public void setHypertensionHistory(){
+        String expected = "Don'T KNOW";
+        spatialViewerExternalLink.setHypertensionHistory(expected);
+        assertEquals("Don't Know", spatialViewerExternalLink.getHypertensionHistory());
+    }
+
+    @Test
+    public void setHypertensionDuration(){
+        String expected = "5 years";
+        spatialViewerExternalLink.setHypertensionDuration(expected);
+        assertEquals(expected, spatialViewerExternalLink.getHypertensionDuration());
+    }
+
+    @Test
+    public void setOnRaasBlockade(){
+        String expected = "Yes";
+        spatialViewerExternalLink.setOnRaasBlockade(expected);
+        assertEquals(expected, spatialViewerExternalLink.getOnRaasBlockade());
+    }
+
+    @Test
+    public void setRace(){
+        String expected = "Asian";
+        spatialViewerExternalLink.setRace(expected);
+        assertEquals(expected, spatialViewerExternalLink.getRace());
+    }
+
+
 }

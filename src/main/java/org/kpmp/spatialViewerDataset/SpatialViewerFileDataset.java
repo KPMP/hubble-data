@@ -2,6 +2,8 @@ package org.kpmp.spatialViewerDataset;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
+import org.apache.commons.text.WordUtils;
 import org.kpmp.file.File;
 
 import jakarta.persistence.Column;
@@ -42,6 +44,19 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
     private String spectrackSampleId;
     private String level;
     private Double releaseVersion;
+    @Column(name = "primary_adjudicated_cat")
+    private String primaryAdjudicatedCategory;
+    private String kdigoStage;
+    private String baselineEgfr;
+    private String proteinuria;
+    private String a1c;
+    private String albuminuria;
+    private String diabetesHistory;
+    private String diabetesDuration;
+    private String hypertensionDuration;
+    private String hypertensionHistory;
+    private String onRaasBlockade;
+    private String race;
     
     @Transient
     private String releaseVersionDisplay;
@@ -267,6 +282,163 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
         this.releaseVersionDisplay = releaseVersionDisplay;
 
     }
+
+    @JsonProperty("primaryadjudicatedcategory")
+    public String getPrimaryAdjudicatedCategory() {
+        return this.primaryAdjudicatedCategory;
+    }
+
+    public void setPrimaryAdjudicatedCategory(String primaryAdjudicatedCategory) {
+        this.primaryAdjudicatedCategory = primaryAdjudicatedCategory;
+    }
+
+    @JsonProperty("kdigostage")
+    public String getKdigoStage() {
+        if(this.kdigoStage.isEmpty()){
+            return null;
+        }else{
+            return this.kdigoStage;
+        }
+    }
+
+    public void setKdigoStage(String kdigoStage) {
+        this.kdigoStage = kdigoStage;
+    }
+
+    @JsonProperty("baselineegfr")
+    public String getBaselineEgfr() {
+        if(this.baselineEgfr.isEmpty()){
+            return null;
+        }else{
+            return this.baselineEgfr;
+        }
+    }
+
+    public void setBaselineEgfr(String baselineEgfr) {
+        this.baselineEgfr = baselineEgfr;
+    }
+
+    @JsonProperty("proteinuria")
+    public String getProteinuria() {
+        if(this.proteinuria.isEmpty()){
+            return null;
+        }else {
+            return this.proteinuria;
+        }
+    }
+
+    public void setProteinuria(String proteinuria) {
+        this.proteinuria = proteinuria;
+    }
+
+    @JsonProperty("a1c")
+    public String getA1c() {
+        if(this.a1c.isEmpty()){
+            return null;
+        }else {
+            return this.a1c;
+        }
+    }
+
+    public void setA1c(String a1c) {
+        this.a1c = a1c;
+    }
+
+    @JsonProperty("albuminuria")
+    public String getAlbuminuria() {
+        if(this.albuminuria.isEmpty()){
+            return null;
+        }else{
+            return albuminuria;
+        }
+    }
+
+    public void setAlbuminuria(String albuminuria) {
+        this.albuminuria = albuminuria;
+    }
+
+    @JsonProperty("diabeteshistory")
+    public String getDiabetesHistory() {
+        if(this.diabetesHistory.isEmpty()){
+            return null;
+        }else{
+            return fixCapitalization(this.diabetesHistory);
+        }
+    }
+
+    public void setDiabetesHistory(String diabetesHistory) {
+        this.diabetesHistory = diabetesHistory;
+    }
+
+    @JsonProperty("diabetesduration")
+    public String getDiabetesDuration() {
+        if(this.diabetesDuration.isEmpty()){
+            return null;
+        }else{
+            return this.diabetesDuration;
+        }
+    }
+
+    public void setDiabetesDuration(String diabetesDuration) {
+        this.diabetesDuration = diabetesDuration;
+    }
+
+    @JsonProperty("hypertensionduration")
+    public String getHypertensionDuration() {
+        if(this.hypertensionDuration.isEmpty()){
+            return null;
+        }else{
+            return this.hypertensionDuration;
+        }
+    }
+
+    public void setHypertensionDuration(String hypertensionDuration) {
+        this.hypertensionDuration = hypertensionDuration;
+    }
+
+    @JsonProperty("hypertensionhistory")
+    public String getHypertensionHistory() {
+        if(this.hypertensionHistory.isEmpty()){
+            return null;
+        }else{
+            return fixCapitalization(this.hypertensionHistory);
+        }
+    }
+
+    public void setHypertensionHistory(String hypertensionHistory) {
+        this.hypertensionHistory = hypertensionHistory;
+    }
+
+    @JsonProperty("onraasblockade")
+    public String getOnRaasBlockade() {
+        if(this.onRaasBlockade.isEmpty()){
+            return null;
+        }else{
+            return this.onRaasBlockade;
+        }
+    }
+
+    public void setOnRaasBlockade(String onRaasBlockade){
+        this.onRaasBlockade = onRaasBlockade;
+    } 
+
+    @JsonProperty("ethnicity")
+    public String getRace() {
+        if(this.race.isEmpty()){
+            return null;
+        }else {
+            return this.race;
+        }
+    }
+
+    public void setRace(String race) {
+        this.race = race;
+    }
+
+    public void setImageTypeSort(String imageTypeSort) {
+        this.imageTypeSort = imageTypeSort;
+    }
+
     
     @JsonProperty("file_name_sort")
     public String getFileNameSort() {
@@ -294,5 +466,10 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
 
     public void setParticipantIdSort(int participantIdSort) {
         this.participantIdSort = participantIdSort;
+    }
+
+    public String fixCapitalization(String input){
+        String updatedInput = WordUtils.capitalizeFully(input);
+        return updatedInput;
     }
 }

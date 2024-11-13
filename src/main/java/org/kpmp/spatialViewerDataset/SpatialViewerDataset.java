@@ -53,5 +53,29 @@ public interface SpatialViewerDataset {
 
   Double getReleaseVersion();
 
+  String getPrimaryAdjudicatedCategory();
+
+  String getKdigoStage();
+
+  String getBaselineEgfr();
+
+  String getProteinuria();
+
+  String getA1c();
+
+  String getAlbuminuria();
+
+  String getDiabetesDuration();
+
+  String getDiabetesHistory();
+
+  String getHypertensionDuration();
+
+  String getHypertensionHistory();
+
+  String getOnRaasBlockade();
+
+  String getRace();
+
 }
 
