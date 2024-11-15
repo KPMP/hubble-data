@@ -336,7 +336,7 @@ public class SpatialViewerExternalLinkDataset implements SpatialViewerDataset {
         }
     }
 
-    @JsonProperty("ethnicity")
+    @JsonProperty("race")
     public String getRace() {
         if(this.race.isEmpty()){
             return null;

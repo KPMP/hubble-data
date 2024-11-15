@@ -422,7 +422,7 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
         this.onRaasBlockade = onRaasBlockade;
     } 
 
-    @JsonProperty("ethnicity")
+    @JsonProperty("race")
     public String getRace() {
         if(this.race.isEmpty()){
             return null;
