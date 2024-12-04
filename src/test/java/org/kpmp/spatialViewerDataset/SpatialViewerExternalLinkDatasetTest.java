@@ -134,72 +134,122 @@ public class SpatialViewerExternalLinkDatasetTest {
 
     @Test
     public void setKdigoStage(){
-        String expected = "Stage 3";
-        spatialViewerExternalLink.setKdigoStage(expected);
-        assertEquals(expected, spatialViewerExternalLink.getKdigoStage());
+        spatialViewerExternalLink.setKdigoStage("Stage 3");
+        assertEquals("Stage 3 (ks)", spatialViewerExternalLink.getKdigoStage());
+    }
+
+    @Test
+    public void setKdigoStage_whenBlank(){
+        spatialViewerExternalLink.setKdigoStage("");
+        assertEquals("", spatialViewerExternalLink.getKdigoStage());
     }
 
     @Test
     public void setBaselineEgfr(){
-        String expected = "60";
-        spatialViewerExternalLink.setBaselineEgfr(expected);
-        assertEquals(expected, spatialViewerExternalLink.getBaselineEgfr());
+        spatialViewerExternalLink.setBaselineEgfr("60");
+        assertEquals("60 (eGFR)", spatialViewerExternalLink.getBaselineEgfr());
+    }
+
+    @Test
+    public void setBaselineEgfr_whenBlank() {
+        spatialViewerExternalLink.setBaselineEgfr("");
+        assertEquals("", spatialViewerExternalLink.getBaselineEgfr());
     }
 
     @Test
     public void setProteinuria(){
-        String expected = "High";
-        spatialViewerExternalLink.setProteinuria(expected);
-        assertEquals(expected, spatialViewerExternalLink.getProteinuria());
+        spatialViewerExternalLink.setProteinuria("high");
+        assertEquals("high (prot)", spatialViewerExternalLink.getProteinuria());
+    }
+
+    @Test
+    public void setProteinuria_whenBlank(){
+        spatialViewerExternalLink.setProteinuria("");
+        assertEquals("", spatialViewerExternalLink.getProteinuria());
     }
 
     @Test
     public void setA1c(){
-        String expected = "5.6";
-        spatialViewerExternalLink.setA1c(expected);
-        assertEquals(expected, spatialViewerExternalLink.getA1c());
+        spatialViewerExternalLink.setA1c("5.6");
+        assertEquals("5.6 (a1c)", spatialViewerExternalLink.getA1c());
+    }
+
+    @Test
+    public void setA1c_whenBlank(){
+        spatialViewerExternalLink.setA1c("");
+        assertEquals("", spatialViewerExternalLink.getA1c());
     }
 
     @Test
     public void setAlbuminuria(){
-        String expected = "Moderate";
-        spatialViewerExternalLink.setAlbuminuria(expected);
-        assertEquals(expected, spatialViewerExternalLink.getAlbuminuria());
+        spatialViewerExternalLink.setAlbuminuria("Moderate");
+        assertEquals("Moderate (alb)", spatialViewerExternalLink.getAlbuminuria());
+    }
+
+    @Test
+    public void setAlbuminuria_whenBlank(){
+        spatialViewerExternalLink.setAlbuminuria("");
+        assertEquals("", spatialViewerExternalLink.getAlbuminuria());
     }
 
     @Test
     public void setDiabetesHistory(){
-        String expected = "Don'T KnOw";
-        spatialViewerExternalLink.setDiabetesHistory(expected);
-        assertEquals("Don't Know", spatialViewerExternalLink.getDiabetesHistory());
+        spatialViewerExternalLink.setDiabetesHistory("Don't Know");
+        assertEquals("Don't Know (dh)", spatialViewerExternalLink.getDiabetesHistory());
+    }
+
+    @Test
+    public void setDiabetesHistory_whenBlank(){
+        spatialViewerExternalLink.setDiabetesHistory("");
+        assertEquals("", spatialViewerExternalLink.getDiabetesHistory());
     }
 
     @Test
     public void setDiabetesDuration(){
-        String expected = "10 years";
-        spatialViewerExternalLink.setDiabetesDuration(expected);
-        assertEquals(expected, spatialViewerExternalLink.getDiabetesDuration());
+        spatialViewerExternalLink.setDiabetesDuration("10 years");
+        assertEquals("10 years (dd)", spatialViewerExternalLink.getDiabetesDuration());
+    }
+
+    @Test
+    public void setDiabetesDuration_whenBlank(){
+        spatialViewerExternalLink.setDiabetesDuration("");
+        assertEquals("", spatialViewerExternalLink.getDiabetesDuration());
     }
 
     @Test
     public void setHypertensionHistory(){
-        String expected = "Don'T KNOW";
-        spatialViewerExternalLink.setHypertensionHistory(expected);
-        assertEquals("Don't Know", spatialViewerExternalLink.getHypertensionHistory());
+        spatialViewerExternalLink.setHypertensionHistory("Don't Know");
+        assertEquals("Don't Know (hh)", spatialViewerExternalLink.getHypertensionHistory());
+    }
+
+    @Test
+    public void setHypertensionHistory_whenBlank(){
+        spatialViewerExternalLink.setHypertensionHistory("");
+        assertEquals("", spatialViewerExternalLink.getHypertensionHistory());
     }
 
     @Test
     public void setHypertensionDuration(){
-        String expected = "5 years";
-        spatialViewerExternalLink.setHypertensionDuration(expected);
-        assertEquals(expected, spatialViewerExternalLink.getHypertensionDuration());
+        spatialViewerExternalLink.setHypertensionDuration("5 years");
+        assertEquals("5 years (hd)", spatialViewerExternalLink.getHypertensionDuration());
+    }
+
+    @Test
+    public void setHypertensionDuration_whenBlank(){
+        spatialViewerExternalLink.setHypertensionDuration("");
+        assertEquals("", spatialViewerExternalLink.getHypertensionDuration());
     }
 
     @Test
     public void setOnRaasBlockade(){
-        String expected = "Yes";
-        spatialViewerExternalLink.setOnRaasBlockade(expected);
-        assertEquals(expected, spatialViewerExternalLink.getOnRaasBlockade());
+        spatialViewerExternalLink.setOnRaasBlockade("yes");
+        assertEquals("yes (rb)", spatialViewerExternalLink.getOnRaasBlockade());
+    }
+
+    @Test
+    public void setOnRaasBlockade_whenBlank(){
+        spatialViewerExternalLink.setOnRaasBlockade("");
+        assertEquals("", spatialViewerExternalLink.getOnRaasBlockade());
     }
 
     @Test

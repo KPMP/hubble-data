@@ -23,6 +23,10 @@ apply plugin: 'io.spring.dependency-management'
 apply plugin: 'com.palantir.docker'
 
 
+test{
+    useJUnitPlatform()
+}
+
 repositories {
     mavenCentral()
 }
