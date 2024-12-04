@@ -27,14 +27,14 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
     @Column(name = "file_id")
     private int fileId;
     private String configType;
-    private String imageType;
+    private String imageType = "";
     private String dataType;
     private String dlFileId;
     private String fileName;
     private String packageId;
     private Long fileSize;
     private int participantId;
-    private String redcapId;
+    private String redcapId = "";
     private String age;
     private String protocol;
     private String sampleType;
@@ -46,17 +46,17 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
     private Double releaseVersion;
     @Column(name = "primary_adjudicated_cat")
     private String primaryAdjudicatedCategory;
-    private String kdigoStage;
-    private String baselineEgfr;
-    private String proteinuria;
-    private String a1c;
-    private String albuminuria;
-    private String diabetesHistory;
-    private String diabetesDuration;
-    private String hypertensionDuration;
-    private String hypertensionHistory;
-    private String onRaasBlockade;
-    private String race;
+    private String kdigoStage = "";
+    private String baselineEgfr = "";
+    private String proteinuria = "";
+    private String a1c = "";
+    private String albuminuria = "";
+    private String diabetesHistory = "";
+    private String diabetesDuration = "";
+    private String hypertensionDuration = "";
+    private String hypertensionHistory = "";
+    private String onRaasBlockade = "";
+    private String race = "";
     
     @Transient
     private String releaseVersionDisplay;
@@ -294,11 +294,7 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
 
     @JsonProperty("kdigostage")
     public String getKdigoStage() {
-        if(this.kdigoStage.isEmpty()){
-            return null;
-        }else{
-            return this.kdigoStage;
-        }
+        return this.kdigoStage.isBlank() ? this.kdigoStage: this.kdigoStage + " (ks)";
     }
 
     public void setKdigoStage(String kdigoStage) {
@@ -307,11 +303,7 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
 
     @JsonProperty("baselineegfr")
     public String getBaselineEgfr() {
-        if(this.baselineEgfr.isEmpty()){
-            return null;
-        }else{
-            return this.baselineEgfr;
-        }
+        return this.baselineEgfr.isBlank() ? this.baselineEgfr: this.baselineEgfr + " (eGFR)";
     }
 
     public void setBaselineEgfr(String baselineEgfr) {
@@ -320,11 +312,7 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
 
     @JsonProperty("proteinuria")
     public String getProteinuria() {
-        if(this.proteinuria.isEmpty()){
-            return null;
-        }else {
-            return this.proteinuria;
-        }
+        return this.proteinuria.isBlank() ? this.proteinuria: this.proteinuria + " (prot)";
     }
 
     public void setProteinuria(String proteinuria) {
@@ -333,11 +321,7 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
 
     @JsonProperty("a1c")
     public String getA1c() {
-        if(this.a1c.isEmpty()){
-            return null;
-        }else {
-            return this.a1c;
-        }
+        return this.a1c.isBlank() ? this.a1c: this.a1c + " (a1c)";
     }
 
     public void setA1c(String a1c) {
@@ -346,11 +330,7 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
 
     @JsonProperty("albuminuria")
     public String getAlbuminuria() {
-        if(this.albuminuria.isEmpty()){
-            return null;
-        }else{
-            return albuminuria;
-        }
+        return this.albuminuria.isBlank() ? this.albuminuria: this.albuminuria + " (alb)";
     }
 
     public void setAlbuminuria(String albuminuria) {
@@ -359,11 +339,7 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
 
     @JsonProperty("diabeteshistory")
     public String getDiabetesHistory() {
-        if(this.diabetesHistory.isEmpty()){
-            return null;
-        }else{
-            return fixCapitalization(this.diabetesHistory);
-        }
+        return this.diabetesHistory.isBlank() ? this.diabetesHistory: this.diabetesHistory + " (dh)";
     }
 
     public void setDiabetesHistory(String diabetesHistory) {
@@ -372,11 +348,7 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
 
     @JsonProperty("diabetesduration")
     public String getDiabetesDuration() {
-        if(this.diabetesDuration.isEmpty()){
-            return null;
-        }else{
-            return this.diabetesDuration;
-        }
+        return this.diabetesDuration.isBlank() ? this.diabetesDuration: this.diabetesDuration + " (dd)";
     }
 
     public void setDiabetesDuration(String diabetesDuration) {
@@ -385,11 +357,7 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
 
     @JsonProperty("hypertensionduration")
     public String getHypertensionDuration() {
-        if(this.hypertensionDuration.isEmpty()){
-            return null;
-        }else{
-            return this.hypertensionDuration;
-        }
+        return this.hypertensionDuration.isBlank() ? this.hypertensionDuration: this.hypertensionDuration + " (hd)";
     }
 
     public void setHypertensionDuration(String hypertensionDuration) {
@@ -398,11 +366,7 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
 
     @JsonProperty("hypertensionhistory")
     public String getHypertensionHistory() {
-        if(this.hypertensionHistory.isEmpty()){
-            return null;
-        }else{
-            return fixCapitalization(this.hypertensionHistory);
-        }
+        return this.hypertensionHistory.isBlank() ? this.hypertensionHistory: this.hypertensionHistory + " (hh)";
     }
 
     public void setHypertensionHistory(String hypertensionHistory) {
@@ -411,11 +375,7 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
 
     @JsonProperty("onraasblockade")
     public String getOnRaasBlockade() {
-        if(this.onRaasBlockade.isEmpty()){
-            return null;
-        }else{
-            return this.onRaasBlockade;
-        }
+        return this.onRaasBlockade.isBlank() ? this.onRaasBlockade: this.onRaasBlockade + " (rb)";
     }
 
     public void setOnRaasBlockade(String onRaasBlockade){
