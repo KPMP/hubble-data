@@ -180,7 +180,7 @@ public class SpatialViewerFileDatasetTest {
     @Test
     public void getKdigoStage_whenBlank() {
         spatialViewerDataset.setKdigoStage("");
-        assertEquals("", spatialViewerDataset.getKdigoStage());
+        assertEquals(null, spatialViewerDataset.getKdigoStage());
     }
 
     @Test
@@ -192,7 +192,7 @@ public class SpatialViewerFileDatasetTest {
     @Test
     public void getBaselineEgfr_whenBlank() {
         spatialViewerDataset.setBaselineEgfr("");
-        assertEquals("", spatialViewerDataset.getBaselineEgfr());
+        assertEquals(null, spatialViewerDataset.getBaselineEgfr());
     }
 
     @Test
@@ -204,7 +204,7 @@ public class SpatialViewerFileDatasetTest {
     @Test
     public void getProteinuria_whenBlank() {
         spatialViewerDataset.setProteinuria("");
-        assertEquals("", spatialViewerDataset.getProteinuria());
+        assertEquals(null, spatialViewerDataset.getProteinuria());
     }
 
     @Test
@@ -216,7 +216,7 @@ public class SpatialViewerFileDatasetTest {
     @Test
     public void getA1c_whenBlank() {
         spatialViewerDataset.setA1c("");
-        assertEquals("", spatialViewerDataset.getA1c());
+        assertEquals(null, spatialViewerDataset.getA1c());
     }
 
     @Test
@@ -228,7 +228,7 @@ public class SpatialViewerFileDatasetTest {
     @Test
     public void getAbluminuria_whenBlank() {
         spatialViewerDataset.setAlbuminuria("");
-        assertEquals("", spatialViewerDataset.getAlbuminuria());
+        assertEquals(null, spatialViewerDataset.getAlbuminuria());
     }
 
     @Test
