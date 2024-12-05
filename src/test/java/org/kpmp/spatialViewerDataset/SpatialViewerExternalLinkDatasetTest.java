@@ -141,7 +141,7 @@ public class SpatialViewerExternalLinkDatasetTest {
     @Test
     public void setKdigoStage_whenBlank(){
         spatialViewerExternalLink.setKdigoStage("");
-        assertEquals("", spatialViewerExternalLink.getKdigoStage());
+        assertEquals(null, spatialViewerExternalLink.getKdigoStage());
     }
 
     @Test
@@ -153,7 +153,7 @@ public class SpatialViewerExternalLinkDatasetTest {
     @Test
     public void setBaselineEgfr_whenBlank() {
         spatialViewerExternalLink.setBaselineEgfr("");
-        assertEquals("", spatialViewerExternalLink.getBaselineEgfr());
+        assertEquals(null, spatialViewerExternalLink.getBaselineEgfr());
     }
 
     @Test
@@ -165,7 +165,7 @@ public class SpatialViewerExternalLinkDatasetTest {
     @Test
     public void setProteinuria_whenBlank(){
         spatialViewerExternalLink.setProteinuria("");
-        assertEquals("", spatialViewerExternalLink.getProteinuria());
+        assertEquals(null, spatialViewerExternalLink.getProteinuria());
     }
 
     @Test
@@ -177,7 +177,7 @@ public class SpatialViewerExternalLinkDatasetTest {
     @Test
     public void setA1c_whenBlank(){
         spatialViewerExternalLink.setA1c("");
-        assertEquals("", spatialViewerExternalLink.getA1c());
+        assertEquals(null, spatialViewerExternalLink.getA1c());
     }
 
     @Test
@@ -189,7 +189,7 @@ public class SpatialViewerExternalLinkDatasetTest {
     @Test
     public void setAlbuminuria_whenBlank(){
         spatialViewerExternalLink.setAlbuminuria("");
-        assertEquals("", spatialViewerExternalLink.getAlbuminuria());
+        assertEquals(null, spatialViewerExternalLink.getAlbuminuria());
     }
 
     @Test
@@ -201,7 +201,7 @@ public class SpatialViewerExternalLinkDatasetTest {
     @Test
     public void setDiabetesHistory_whenBlank(){
         spatialViewerExternalLink.setDiabetesHistory("");
-        assertEquals("", spatialViewerExternalLink.getDiabetesHistory());
+        assertEquals(null, spatialViewerExternalLink.getDiabetesHistory());
     }
 
     @Test
@@ -213,7 +213,7 @@ public class SpatialViewerExternalLinkDatasetTest {
     @Test
     public void setDiabetesDuration_whenBlank(){
         spatialViewerExternalLink.setDiabetesDuration("");
-        assertEquals("", spatialViewerExternalLink.getDiabetesDuration());
+        assertEquals(null, spatialViewerExternalLink.getDiabetesDuration());
     }
 
     @Test
@@ -225,7 +225,7 @@ public class SpatialViewerExternalLinkDatasetTest {
     @Test
     public void setHypertensionHistory_whenBlank(){
         spatialViewerExternalLink.setHypertensionHistory("");
-        assertEquals("", spatialViewerExternalLink.getHypertensionHistory());
+        assertEquals(null, spatialViewerExternalLink.getHypertensionHistory());
     }
 
     @Test
@@ -237,7 +237,7 @@ public class SpatialViewerExternalLinkDatasetTest {
     @Test
     public void setHypertensionDuration_whenBlank(){
         spatialViewerExternalLink.setHypertensionDuration("");
-        assertEquals("", spatialViewerExternalLink.getHypertensionDuration());
+        assertEquals(null, spatialViewerExternalLink.getHypertensionDuration());
     }
 
     @Test
@@ -249,7 +249,7 @@ public class SpatialViewerExternalLinkDatasetTest {
     @Test
     public void setOnRaasBlockade_whenBlank(){
         spatialViewerExternalLink.setOnRaasBlockade("");
-        assertEquals("", spatialViewerExternalLink.getOnRaasBlockade());
+        assertEquals(null, spatialViewerExternalLink.getOnRaasBlockade());
     }
 
     @Test
