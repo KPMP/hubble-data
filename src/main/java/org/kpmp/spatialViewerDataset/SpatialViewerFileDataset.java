@@ -294,7 +294,7 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
 
     @JsonProperty("kdigostage")
     public String getKdigoStage() {
-        return this.kdigoStage.isBlank() ? this.kdigoStage: this.kdigoStage + " (ks)";
+        return this.kdigoStage.isBlank() ? null : this.kdigoStage + " (ks)";
     }
 
     public void setKdigoStage(String kdigoStage) {
@@ -303,7 +303,7 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
 
     @JsonProperty("baselineegfr")
     public String getBaselineEgfr() {
-        return this.baselineEgfr.isBlank() ? this.baselineEgfr: this.baselineEgfr + " (eGFR)";
+        return this.baselineEgfr.isBlank() ? null : this.baselineEgfr + " (eGFR)";
     }
 
     public void setBaselineEgfr(String baselineEgfr) {
@@ -312,7 +312,7 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
 
     @JsonProperty("proteinuria")
     public String getProteinuria() {
-        return this.proteinuria.isBlank() ? this.proteinuria: this.proteinuria + " (prot)";
+        return this.proteinuria.isBlank() ? null : this.proteinuria + " (prot)";
     }
 
     public void setProteinuria(String proteinuria) {
@@ -321,7 +321,7 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
 
     @JsonProperty("a1c")
     public String getA1c() {
-        return this.a1c.isBlank() ? this.a1c: this.a1c + " (a1c)";
+        return this.a1c.isBlank() ? null : this.a1c + " (a1c)";
     }
 
     public void setA1c(String a1c) {
@@ -330,7 +330,7 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
 
     @JsonProperty("albuminuria")
     public String getAlbuminuria() {
-        return this.albuminuria.isBlank() ? this.albuminuria: this.albuminuria + " (alb)";
+        return this.albuminuria.isBlank() ? null : this.albuminuria + " (alb)";
     }
 
     public void setAlbuminuria(String albuminuria) {
@@ -339,7 +339,7 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
 
     @JsonProperty("diabeteshistory")
     public String getDiabetesHistory() {
-        return this.diabetesHistory.isBlank() ? this.diabetesHistory: this.diabetesHistory + " (dh)";
+        return this.diabetesHistory.isBlank() ? null : this.diabetesHistory + " (dh)";
     }
 
     public void setDiabetesHistory(String diabetesHistory) {
@@ -348,7 +348,7 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
 
     @JsonProperty("diabetesduration")
     public String getDiabetesDuration() {
-        return this.diabetesDuration.isBlank() ? this.diabetesDuration: this.diabetesDuration + " (dd)";
+        return this.diabetesDuration.isBlank() ? null : this.diabetesDuration + " (dd)";
     }
 
     public void setDiabetesDuration(String diabetesDuration) {
@@ -357,7 +357,7 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
 
     @JsonProperty("hypertensionduration")
     public String getHypertensionDuration() {
-        return this.hypertensionDuration.isBlank() ? this.hypertensionDuration: this.hypertensionDuration + " (hd)";
+        return this.hypertensionDuration.isBlank() ? null : this.hypertensionDuration + " (hd)";
     }
 
     public void setHypertensionDuration(String hypertensionDuration) {
@@ -366,7 +366,7 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
 
     @JsonProperty("hypertensionhistory")
     public String getHypertensionHistory() {
-        return this.hypertensionHistory.isBlank() ? this.hypertensionHistory: this.hypertensionHistory + " (hh)";
+        return this.hypertensionHistory.isBlank() ? null : this.hypertensionHistory + " (hh)";
     }
 
     public void setHypertensionHistory(String hypertensionHistory) {
@@ -375,7 +375,7 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
 
     @JsonProperty("onraasblockade")
     public String getOnRaasBlockade() {
-        return this.onRaasBlockade.isBlank() ? this.onRaasBlockade: this.onRaasBlockade + " (rb)";
+        return this.onRaasBlockade.isBlank() ? null : this.onRaasBlockade + " (rb)";
     }
 
     public void setOnRaasBlockade(String onRaasBlockade){

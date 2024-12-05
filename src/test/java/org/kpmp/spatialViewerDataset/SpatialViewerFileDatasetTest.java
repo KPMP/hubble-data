@@ -240,7 +240,7 @@ public class SpatialViewerFileDatasetTest {
     @Test
     public void getDiabetesHistory_whenBlank() {
         spatialViewerDataset.setDiabetesHistory("");
-        assertEquals("", spatialViewerDataset.getDiabetesHistory());
+        assertEquals(null, spatialViewerDataset.getDiabetesHistory());
     }
 
     @Test
@@ -252,7 +252,7 @@ public class SpatialViewerFileDatasetTest {
     @Test
     public void getDiabetesDuration_whenBlank() {
         spatialViewerDataset.setDiabetesDuration("");
-        assertEquals("", spatialViewerDataset.getDiabetesDuration());
+        assertEquals(null, spatialViewerDataset.getDiabetesDuration());
     }
 
     @Test
@@ -264,7 +264,7 @@ public class SpatialViewerFileDatasetTest {
     @Test
     public void getHypertensionHistory_whenBlank() {
         spatialViewerDataset.setHypertensionHistory("");
-        assertEquals("", spatialViewerDataset.getHypertensionHistory());
+        assertEquals(null, spatialViewerDataset.getHypertensionHistory());
     }
 
     @Test
@@ -276,7 +276,7 @@ public class SpatialViewerFileDatasetTest {
     @Test
     public void getHypertensionDuration_whenBlank() {
         spatialViewerDataset.setHypertensionDuration("");
-        assertEquals("", spatialViewerDataset.getHypertensionDuration());
+        assertEquals(null, spatialViewerDataset.getHypertensionDuration());
     }
 
     @Test
@@ -288,7 +288,7 @@ public class SpatialViewerFileDatasetTest {
     @Test
     public void getOnRaasBlockade_whenBlank() {
         spatialViewerDataset.setOnRaasBlockade("");
-        assertEquals("", spatialViewerDataset.getOnRaasBlockade());
+        assertEquals(null, spatialViewerDataset.getOnRaasBlockade());
     }
 
     @Test
