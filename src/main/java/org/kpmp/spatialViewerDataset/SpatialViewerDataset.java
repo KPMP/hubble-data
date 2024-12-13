@@ -11,7 +11,7 @@ public interface SpatialViewerDataset {
   
   String getSpectrackSampleId();
   
-  String getTissueType();
+  String getEnrollmentCategory();
     
   String getTissueSource();
   
@@ -52,6 +52,30 @@ public interface SpatialViewerDataset {
   String getExternalLink();
 
   Double getReleaseVersion();
+
+  String getPrimaryAdjudicatedCategory();
+
+  String getKdigoStage();
+
+  String getBaselineEgfr();
+
+  String getProteinuria();
+
+  String getA1c();
+
+  String getAlbuminuria();
+
+  String getDiabetesDuration();
+
+  String getDiabetesHistory();
+
+  String getHypertensionDuration();
+
+  String getHypertensionHistory();
+
+  String getOnRaasBlockade();
+
+  String getRace();
 
 }
 

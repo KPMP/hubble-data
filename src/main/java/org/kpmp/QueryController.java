@@ -6,7 +6,6 @@ import org.kpmp.spatialViewerDataset.SpatialViewerDatasetService;
 import org.kpmp.spatialViewerDataset.SpatialViewerExternalLinkDataset;
 import org.kpmp.spatialViewerDataset.SpatialViewerFileDataset;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 

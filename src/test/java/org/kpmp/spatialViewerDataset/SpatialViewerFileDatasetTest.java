@@ -1,8 +1,5 @@
 package org.kpmp.spatialViewerDataset;
 
-
-
-
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -112,9 +109,9 @@ public class SpatialViewerFileDatasetTest {
     }
 
     @Test
-    public void setTissueType() {
-        spatialViewerDataset.setTissueType("ttype");
-        assertEquals("ttype", spatialViewerDataset.getTissueType());
+    public void setEnrollmentCategory() {
+        spatialViewerDataset.setEnrollmentCategory("ttype");
+        assertEquals("ttype", spatialViewerDataset.getEnrollmentCategory());
     }
 
     @Test
@@ -132,7 +129,7 @@ public class SpatialViewerFileDatasetTest {
     @Test
     public void setRelatedFiles() {
         File file = new File();
-        List files = Arrays.asList(file);
+        List<File> files = Arrays.asList(file);
         spatialViewerDataset.setRelatedFiles(files);
         assertEquals(files, spatialViewerDataset.getRelatedFiles());
     }
@@ -167,4 +164,137 @@ public class SpatialViewerFileDatasetTest {
         spatialViewerDataset.setRedcapId("123-4");
         assertEquals(1234, spatialViewerDataset.getParticipantIdSort());
     }
+
+    @Test
+    public void getPrimaryAdjudicatedCategory() {
+        spatialViewerDataset.setPrimaryAdjudicatedCategory("TestCategory");
+        assertEquals("TestCategory", spatialViewerDataset.getPrimaryAdjudicatedCategory());
+    }
+
+    @Test
+    public void getKdigoStage() {
+        spatialViewerDataset.setKdigoStage("Stage 3");
+        assertEquals("Stage 3 (ks)", spatialViewerDataset.getKdigoStage());
+    }
+
+    @Test
+    public void getKdigoStage_whenBlank() {
+        spatialViewerDataset.setKdigoStage("");
+        assertEquals(null, spatialViewerDataset.getKdigoStage());
+    }
+
+    @Test
+    public void getBaselineEgfr() {
+        spatialViewerDataset.setBaselineEgfr("60");
+        assertEquals("60 (eGFR)", spatialViewerDataset.getBaselineEgfr());
+    }
+
+    @Test
+    public void getBaselineEgfr_whenBlank() {
+        spatialViewerDataset.setBaselineEgfr("");
+        assertEquals(null, spatialViewerDataset.getBaselineEgfr());
+    }
+
+    @Test
+    public void getProteinuria() {
+        spatialViewerDataset.setProteinuria("High");
+        assertEquals("High (prot)", spatialViewerDataset.getProteinuria());
+    }
+
+    @Test
+    public void getProteinuria_whenBlank() {
+        spatialViewerDataset.setProteinuria("");
+        assertEquals(null, spatialViewerDataset.getProteinuria());
+    }
+
+    @Test
+    public void getA1c() {
+        spatialViewerDataset.setA1c("5.6");
+        assertEquals("5.6 (a1c)", spatialViewerDataset.getA1c());
+    }
+
+    @Test
+    public void getA1c_whenBlank() {
+        spatialViewerDataset.setA1c("");
+        assertEquals(null, spatialViewerDataset.getA1c());
+    }
+
+    @Test
+    public void getAlbuminuria() {
+        spatialViewerDataset.setAlbuminuria("Moderate");
+        assertEquals("Moderate (alb)", spatialViewerDataset.getAlbuminuria());
+    }
+
+    @Test
+    public void getAbluminuria_whenBlank() {
+        spatialViewerDataset.setAlbuminuria("");
+        assertEquals(null, spatialViewerDataset.getAlbuminuria());
+    }
+
+    @Test
+    public void getDiabetesHistory() {
+        spatialViewerDataset.setDiabetesHistory("Don't Know");
+        assertEquals("Don't Know (dh)", spatialViewerDataset.getDiabetesHistory());
+    }
+
+    @Test
+    public void getDiabetesHistory_whenBlank() {
+        spatialViewerDataset.setDiabetesHistory("");
+        assertEquals(null, spatialViewerDataset.getDiabetesHistory());
+    }
+
+    @Test
+    public void getDiabetesDuration() {
+        spatialViewerDataset.setDiabetesDuration("10 years");
+        assertEquals("10 years (dd)", spatialViewerDataset.getDiabetesDuration());
+    }
+
+    @Test
+    public void getDiabetesDuration_whenBlank() {
+        spatialViewerDataset.setDiabetesDuration("");
+        assertEquals(null, spatialViewerDataset.getDiabetesDuration());
+    }
+
+    @Test
+    public void getHypertensionHistory() {
+        spatialViewerDataset.setHypertensionHistory("Don't Know");
+        assertEquals("Don't Know (hh)", spatialViewerDataset.getHypertensionHistory());
+    }
+
+    @Test
+    public void getHypertensionHistory_whenBlank() {
+        spatialViewerDataset.setHypertensionHistory("");
+        assertEquals(null, spatialViewerDataset.getHypertensionHistory());
+    }
+
+    @Test
+    public void getHypertensionDuration() {
+        spatialViewerDataset.setHypertensionDuration("5 years");
+        assertEquals("5 years (hd)", spatialViewerDataset.getHypertensionDuration());
+    }
+
+    @Test
+    public void getHypertensionDuration_whenBlank() {
+        spatialViewerDataset.setHypertensionDuration("");
+        assertEquals(null, spatialViewerDataset.getHypertensionDuration());
+    }
+
+    @Test
+    public void getOnRaasBlockade() {
+        spatialViewerDataset.setOnRaasBlockade("Yes");
+        assertEquals("Yes (rb)", spatialViewerDataset.getOnRaasBlockade());
+    }
+
+    @Test
+    public void getOnRaasBlockade_whenBlank() {
+        spatialViewerDataset.setOnRaasBlockade("");
+        assertEquals(null, spatialViewerDataset.getOnRaasBlockade());
+    }
+
+    @Test
+    public void getRace() {
+        spatialViewerDataset.setRace("Asian");
+        assertEquals("Asian", spatialViewerDataset.getRace());
+    }
+
 }

@@ -25,7 +25,7 @@ type SpatialViewerDataset {
     sampleType: String
     sex: String
     tissueSource: String
-    tissueType: String
+    enrollmentCategory: String
     spectrackSampleId: String
     level: String # may be null
     relatedFiles: [File] # may be null
@@ -34,6 +34,18 @@ type SpatialViewerDataset {
     fileNameSort: String
     participantIdSort: Int
     imageTypeSort: String
+    primaryAdjudicatedCategory: String
+    kdigoStage: String # may be null
+    baselineEgfr: String # may be null
+    proteinuria: String # may be null
+    a1c: String # may be null
+    albuminuria: String # may be null
+    diabetesDuration: String # may be null
+    diabetesHistory: String # may be null
+    hypertensionDuration: String # may be null
+    hypertensionHistory: String # may be null
+    race: String 
+    onRaasBlockade: String # may be null
 }
 
 type SpatialViewerExternalLink {
@@ -49,8 +61,20 @@ type SpatialViewerExternalLink {
     sampleType: String
     sex: String
     tissueSource: String
-    tissueType: String
+    enrollmentCategory: String
     participantIdSort: Int
     imageTypeSort: String
     releaseVersion: String
+    primaryAdjudicatedCategory: String
+    kdigoStage: String # may be null
+    baselineEgfr: String # may be null
+    proteinuria: String # may be null
+    a1c: String # may be null
+    albuminuria: String # may be null
+    diabetesDuration: String # may be null
+    diabetesHistory: String # may be null
+    hypertensionDuration: String # may be null
+    hypertensionHistory: String # may be null
+    race: String
+    onRaasBlockade: String # may be null
 }
