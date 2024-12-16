@@ -3,6 +3,7 @@ package org.kpmp.spatialViewerDataset;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import org.apache.commons.text.WordUtils;
 import org.kpmp.file.File;
 
@@ -20,6 +21,9 @@ import java.util.List;
 
 @Entity
 @Table(name = "sv_file_v")
+@JsonPropertyOrder(
+        {"externallink","configtype","imagetype","datatype","spectracksampleid","redcapid","participantid","age","protocol","sampletype","sex","tissuesource","enrollmentcategory","primaryadjudicatedcategory","kdigostage","baselineegfr","proteinuria","a1c","albuminuria","diabeteshistory","diabetesduration","hypertensionduration","hypertensionhistory","onraasblockade","race","releaseversion","participant_id_sort","image_type_sort","dlfileid","relatedfiles"}
+)
 public class SpatialViewerFileDataset implements SpatialViewerDataset {
     private static final int UUID_LENGTH = 37;
 
