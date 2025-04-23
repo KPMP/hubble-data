@@ -1,6 +1,8 @@
 package org.kpmp.spatialViewerDataset;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -107,11 +109,11 @@ public class SpatialViewerDatasetServiceTest {
 		when(fileRepo.findAll()).thenReturn(expectedResult2);
 		results.addAll(expectedResult1);
 		results.addAll(expectedResult2);
-
-		HttpEntity<Object> entity = new HttpEntity<>(results, headers);
+        String expectedJson = "[{\"externallink\":\"11\",\"configtype\":null,\"imagetype\":\"\",\"datatype\":null,\"spectracksampleid\":null,\"redcapid\":\"123-456\",\"participantid\":123,\"age\":null,\"protocol\":null,\"sampletype\":null,\"sex\":null,\"tissuesource\":null,\"enrollmentcategory\":null,\"primaryadjudicatedcategory\":null,\"kdigostage\":null,\"baselineegfr\":null,\"proteinuria\":null,\"a1c\":null,\"albuminuria\":null,\"diabeteshistory\":null,\"diabetesduration\":null,\"hypertensionduration\":null,\"hypertensionhistory\":null,\"onraasblockade\":null,\"race\":null,\"releaseversion\":null,\"participant_id_sort\":123456,\"image_type_sort\":\"\",\"dlfileid\":null,\"relatedfiles\":[]},{\"externallink\":\"55\",\"configtype\":null,\"imagetype\":\"\",\"datatype\":null,\"spectracksampleid\":null,\"redcapid\":\"345-456\",\"participantid\":345,\"age\":null,\"protocol\":null,\"sampletype\":null,\"sex\":null,\"tissuesource\":null,\"enrollmentcategory\":null,\"primaryadjudicatedcategory\":null,\"kdigostage\":null,\"baselineegfr\":null,\"proteinuria\":null,\"a1c\":null,\"albuminuria\":null,\"diabeteshistory\":null,\"diabetesduration\":null,\"hypertensionduration\":null,\"hypertensionhistory\":null,\"onraasblockade\":null,\"race\":null,\"releaseversion\":null,\"participant_id_sort\":345456,\"image_type_sort\":\"\",\"dlfileid\":null,\"relatedfiles\":[]},{\"externallink\":null,\"configtype\":null,\"imagetype\":\"\",\"datatype\":null,\"spectracksampleid\":null,\"redcapid\":\"456-456\",\"participantid\":456,\"age\":null,\"protocol\":null,\"sampletype\":null,\"sex\":null,\"tissuesource\":null,\"enrollmentcategory\":null,\"primaryadjudicatedcategory\":null,\"kdigostage\":null,\"baselineegfr\":null,\"proteinuria\":null,\"a1c\":null,\"albuminuria\":null,\"diabeteshistory\":null,\"diabetesduration\":null,\"hypertensionduration\":null,\"hypertensionhistory\":null,\"onraasblockade\":null,\"race\":null,\"releaseversion\":null,\"participant_id_sort\":456456,\"image_type_sort\":\"\",\"dlfileid\":\"DlFileId\",\"relatedfiles\":null,\"fileid\":444,\"filename\":null,\"packageid\":null,\"filesize\":null,\"level\":null,\"file_name_sort\":null,\"spatialviewerdataset\":null},{\"externallink\":null,\"configtype\":null,\"imagetype\":\"\",\"datatype\":null,\"spectracksampleid\":null,\"redcapid\":\"566-456\",\"participantid\":566,\"age\":null,\"protocol\":null,\"sampletype\":null,\"sex\":null,\"tissuesource\":null,\"enrollmentcategory\":null,\"primaryadjudicatedcategory\":null,\"kdigostage\":null,\"baselineegfr\":null,\"proteinuria\":null,\"a1c\":null,\"albuminuria\":null,\"diabeteshistory\":null,\"diabetesduration\":null,\"hypertensionduration\":null,\"hypertensionhistory\":null,\"onraasblockade\":null,\"race\":null,\"releaseversion\":\"Recently Released - release-date\",\"participant_id_sort\":566456,\"image_type_sort\":\"\",\"dlfileid\":\"DlFileId2\",\"relatedfiles\":null,\"fileid\":888,\"filename\":null,\"packageid\":null,\"filesize\":null,\"level\":null,\"file_name_sort\":null,\"spatialviewerdataset\":null}]";
+		HttpEntity<Object> entity = new HttpEntity<>(expectedJson, headers);
 		SpatialViewerDatasetService.ESResponse[] esResponses = {new SpatialViewerDatasetService.ESResponse()};
-//		when(restTemplate.postForObject("host/api/as/v1/engines/search-engine/documents", entity, SpatialViewerDatasetService.ESResponse[].class)).thenReturn(esResponses);
-//		service.loadEnterpriseSearch();
-//		verify(restTemplate).postForObject("host/api/as/v1/engines/search-engine/documents", entity, SpatialViewerDatasetService.ESResponse[].class);
+		when(restTemplate.postForObject(anyString(), any(), any(Class.class))).thenReturn(esResponses);
+		service.loadEnterpriseSearch();
+		verify(restTemplate).postForObject("host/api/as/v1/engines/search-engine/documents", entity, SpatialViewerDatasetService.ESResponse[].class);
 	}
 }
