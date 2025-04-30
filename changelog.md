@@ -1,5 +1,16 @@
 # Changelog
 
+## Release 2.8 [unrleased]
+Brief summary of what's in this release:
+
+
+### Breaking changes
+Breaking changes include any database updates needed, if we need to edit any files on system (like .env or certs, etc). Things that are outside of the code itself that need changed for the system to work.
+
+
+----
+
+
 ## Release 2.7
 Brief summary of what's in this release:
 - Fixed some tests
