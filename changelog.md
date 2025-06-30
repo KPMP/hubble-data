@@ -2,16 +2,17 @@
 
 ## Release 2.8 [unrleased]
 Brief summary of what's in this release:
+- no changes, increasing version numbers to stay in line with front-end code version
 
 
 ### Breaking changes
-Breaking changes include any database updates needed, if we need to edit any files on system (like .env or certs, etc). Things that are outside of the code itself that need changed for the system to work.
+n/a
 
 
 ----
 
 
-## Release 2.7
+## Release 2.7 (4/28/2025)
 Brief summary of what's in this release:
 - Fixed some tests
 
@@ -21,7 +22,7 @@ None
 
 ----
 
-## Release 2.6
+## Release 2.6 (12/19/2024)
 Brief summary of what's in this release:
 - Add code to uniquify the clinical data for filters
 - changes to get clinical data from the new table
