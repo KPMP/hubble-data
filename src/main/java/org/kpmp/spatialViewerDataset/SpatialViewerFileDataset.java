@@ -289,7 +289,11 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
 
     @JsonProperty("primaryadjudicatedcategory")
     public String getPrimaryAdjudicatedCategory() {
-        return this.primaryAdjudicatedCategory;
+        if(primaryAdjudicatedCategory == null || primaryAdjudicatedCategory.isBlank()){
+            return null;
+        }else{
+            return primaryAdjudicatedCategory;
+        }
     }
 
     public void setPrimaryAdjudicatedCategory(String primaryAdjudicatedCategory) {
