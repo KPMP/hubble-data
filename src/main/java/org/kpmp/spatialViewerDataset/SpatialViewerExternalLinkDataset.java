@@ -203,7 +203,7 @@ public class SpatialViewerExternalLinkDataset implements SpatialViewerDataset {
 
     @JsonProperty("primaryadjudicatedcategory")
     public String getPrimaryAdjudicatedCategory() {
-        if(primaryAdjudicatedCategory.isBlank()){
+        if(primaryAdjudicatedCategory == null || primaryAdjudicatedCategory.isBlank()){
             return null;
         }else{
             return primaryAdjudicatedCategory;
