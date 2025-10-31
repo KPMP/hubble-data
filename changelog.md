@@ -1,6 +1,10 @@
 # Changelog
 
-## Release 2.8 [unrleased]
+## Release 2.9
+Brief summary of what's in this release:
+- n/a
+
+## Release 2.8 (06/30/2025)
 Brief summary of what's in this release:
 - no changes, increasing version numbers to stay in line with front-end code version
 
