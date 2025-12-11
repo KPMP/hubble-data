@@ -1,8 +1,17 @@
 # Changelog
 
-## Release 2.9
+## Release 2.10 (unreleased)
+Brief summary
+
+### Breaking changes
+
+---
+
+## Release 2.9 (11/13/2025)
 Brief summary of what's in this release:
 - n/a
+
+---
 
 ## Release 2.8 (06/30/2025)
 Brief summary of what's in this release:
