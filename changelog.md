@@ -1,7 +1,14 @@
 # Changelog
 
-## Release 2.10 (unreleased)
-Brief summary
+## Release 2.11 (unreleased)
+- no changes, increasing version numbers to stay in line with front-end code version
+
+### Breaking changes
+
+---
+
+## Release 2.10
+- no changes, increasing version numbers to stay in line with front-end code version
 
 ### Breaking changes
 
