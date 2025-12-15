@@ -1,8 +1,24 @@
 # Changelog
 
-## Release 2.9
+## Release 2.11 (unreleased)
+Brief summary of what's in this release:
+
+### Breaking changes
+
+---
+
+## Release 2.10
+- no changes, increasing version numbers to stay in line with front-end code version
+
+### Breaking changes
+
+---
+
+## Release 2.9 (11/13/2025)
 Brief summary of what's in this release:
 - n/a
+
+---
 
 ## Release 2.8 (06/30/2025)
 Brief summary of what's in this release:
