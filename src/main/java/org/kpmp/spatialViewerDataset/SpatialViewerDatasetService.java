@@ -16,6 +16,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.io.IOException;
+import java.math.BigDecimal;
 
 
 @Service
@@ -69,12 +70,18 @@ public class SpatialViewerDatasetService  {
     List <SpatialViewerExternalLinkDataset> externalLinkList = new ArrayList<>();
     Map<String, SpatialViewerFileDataset> fileMap = new HashMap<>();
     Map<String, SpatialViewerExternalLinkDataset> linkMap = new HashMap<>();
-    Double maxFileReleaseVersion = fileRepo.max();
-    Double maxLinkReleaseVersion = externalLinkRepo.max();
-    Double maxReleaseVersion = 0.00;
-    if(maxFileReleaseVersion > maxLinkReleaseVersion){
+	BigDecimal maxFileReleaseVersion = fileRepo.max();
+	BigDecimal maxLinkReleaseVersion = externalLinkRepo.max();
+	if (maxFileReleaseVersion == null) {
+		maxFileReleaseVersion = BigDecimal.ZERO;
+	}
+	if (maxLinkReleaseVersion == null) {
+		maxLinkReleaseVersion = BigDecimal.ZERO;
+	}
+    BigDecimal maxReleaseVersion = new BigDecimal("0.00");
+    if(maxFileReleaseVersion.compareTo(maxLinkReleaseVersion) > 0){
         maxReleaseVersion = maxFileReleaseVersion;
-    }else if(maxFileReleaseVersion == maxLinkReleaseVersion){
+    }else if(maxFileReleaseVersion.compareTo(maxLinkReleaseVersion) == 0){
         maxReleaseVersion = maxFileReleaseVersion;
     }else{
         maxReleaseVersion = maxLinkReleaseVersion;
@@ -83,7 +90,7 @@ public class SpatialViewerDatasetService  {
     externalLinkList.addAll(externalLinkRepo.findAll());
     for (SpatialViewerFileDataset spatialViewerFileDataset : datasets){
         if(spatialViewerFileDataset.getReleaseVersion() != null){
-            if (Double.compare(spatialViewerFileDataset.getReleaseVersion(), maxReleaseVersion) == EQUALITY_OPERATOR){
+            if (spatialViewerFileDataset.getReleaseVersion().compareTo(maxReleaseVersion) == EQUALITY_OPERATOR){
                 spatialViewerFileDataset.setReleaseVersionDisplay("Recently Released - " + recentlyReleasedDate);
             }
         }else{
@@ -94,7 +101,7 @@ public class SpatialViewerDatasetService  {
 
     for(SpatialViewerExternalLinkDataset externalLinkDataset : externalLinkList){
         if(externalLinkDataset.getReleaseVersion() != null){
-            if(Double.compare(externalLinkDataset.getReleaseVersion(), maxReleaseVersion) == EQUALITY_OPERATOR){
+            if(externalLinkDataset.getReleaseVersion().compareTo(maxReleaseVersion) == EQUALITY_OPERATOR){
                 externalLinkDataset.setReleaseVersionDisplay("Recently Released - " + recentlyReleasedDate);
             }
         }else{

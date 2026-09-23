@@ -6,6 +6,7 @@ import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONException;
@@ -90,12 +91,12 @@ public class SpatialViewerDatasetServiceTest {
 		spatialViewerDataset2.setExternalLink("55");
 		SpatialViewerFileDataset spatialViewerDataset3 = new SpatialViewerFileDataset();
         spatialViewerDataset3.setDlFileId("DlFileId");
-        spatialViewerDataset3.setReleaseVersion(45.0);
+        spatialViewerDataset3.setReleaseVersion(new BigDecimal("45.0"));
 		spatialViewerDataset3.setParticipantId(456);
 		spatialViewerDataset3.setRedcapId("456-456");
 		spatialViewerDataset3.setFileId(444);
 		SpatialViewerFileDataset spatialViewerDataset4 = new SpatialViewerFileDataset();
-        spatialViewerDataset4.setReleaseVersion(34.0);
+        spatialViewerDataset4.setReleaseVersion(new BigDecimal("34.0"));
         spatialViewerDataset4.setDlFileId("DlFileId2");
 		spatialViewerDataset4.setParticipantId(566);
 		spatialViewerDataset4.setRedcapId("566-456");
@@ -104,7 +105,7 @@ public class SpatialViewerDatasetServiceTest {
 		expectedResult1.add(spatialViewerDataset2);
 		expectedResult2.add(spatialViewerDataset3);
 		expectedResult2.add(spatialViewerDataset4);
-        when(fileRepo.max()).thenReturn(34.0);
+        when(fileRepo.max()).thenReturn(new BigDecimal("34.0"));
 		when(externalLinkRepo.findAll()).thenReturn(expectedResult1);
 		when(fileRepo.findAll()).thenReturn(expectedResult2);
 		results.addAll(expectedResult1);
