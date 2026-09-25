@@ -7,6 +7,7 @@ import org.kpmp.file.File;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
 
@@ -136,8 +137,8 @@ public class SpatialViewerFileDatasetTest {
 
     @Test
     public void setReleaseVerison(){
-        Double expected = 56.0;
-        spatialViewerDataset.setReleaseVersion(56.0);
+        BigDecimal expected = new BigDecimal("56.0");
+        spatialViewerDataset.setReleaseVersion(new BigDecimal("56.0"));
         assertEquals(expected, spatialViewerDataset.getReleaseVersion());
     }
 

@@ -11,6 +11,7 @@ import org.springframework.lang.Nullable;
 import org.apache.commons.text.WordUtils;
 import org.kpmp.file.File;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,7 +34,7 @@ public class SpatialViewerExternalLinkDataset implements SpatialViewerDataset {
     private String sex;
     private String tissueSource;
     private String enrollmentCategory;
-    private Double releaseVersion;
+    private BigDecimal releaseVersion;
     @Column(name = "primary_adjudicated_cat")
     private String primaryAdjudicatedCategory;
     private String kdigoStage = "";
@@ -184,11 +185,11 @@ public class SpatialViewerExternalLinkDataset implements SpatialViewerDataset {
     }
 
     @JsonIgnore
-    public Double getReleaseVersion() {
+    public BigDecimal getReleaseVersion() {
         return releaseVersion;
     }
 
-    public void setReleaseVersion(Double releaseVersion) {
+    public void setReleaseVersion(BigDecimal releaseVersion) {
         this.releaseVersion = releaseVersion;
     }
 
