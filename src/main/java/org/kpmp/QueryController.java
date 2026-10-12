@@ -1,6 +1,5 @@
 package org.kpmp;
 
-import com.coxautodev.graphql.tools.GraphQLQueryResolver;
 import org.kpmp.spatialViewerDataset.SpatialViewerDataset;
 import org.kpmp.spatialViewerDataset.SpatialViewerDatasetService;
 import org.kpmp.spatialViewerDataset.SpatialViewerExternalLinkDataset;
@@ -13,7 +12,7 @@ import java.io.IOException;
 import java.util.List;
 
 @Controller
-public class QueryController implements GraphQLQueryResolver {
+public class QueryController {
 
 	private SpatialViewerDatasetService spatialViewerDatasetService;
 

@@ -1,8 +1,10 @@
 package org.kpmp.spatialViewerDataset;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertInstanceOf;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -13,6 +15,7 @@ import org.json.JSONException;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.core.env.Environment;
@@ -21,6 +24,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.test.util.ReflectionTestUtils;
 import org.springframework.web.client.RestTemplate;
+import tools.jackson.databind.json.JsonMapper;
 
 public class SpatialViewerDatasetServiceTest {
 
@@ -115,6 +119,14 @@ public class SpatialViewerDatasetServiceTest {
 		SpatialViewerDatasetService.ESResponse[] esResponses = {new SpatialViewerDatasetService.ESResponse()};
 		when(restTemplate.postForObject(anyString(), any(), any(Class.class))).thenReturn(esResponses);
 		service.loadEnterpriseSearch();
-		verify(restTemplate).postForObject("host/api/as/v1/engines/search-engine/documents", entity, SpatialViewerDatasetService.ESResponse[].class);
+		ArgumentCaptor<Object> requestCaptor = ArgumentCaptor.forClass(Object.class);
+		verify(restTemplate).postForObject(
+				eq("host/api/as/v1/engines/search-engine/documents"),
+				requestCaptor.capture(),
+				eq(SpatialViewerDatasetService.ESResponse[].class));
+		HttpEntity<?> actualEntity = assertInstanceOf(HttpEntity.class, requestCaptor.getValue());
+		assertEquals(entity.getHeaders(), actualEntity.getHeaders());
+		JsonMapper jsonMapper = JsonMapper.builder().build();
+		assertEquals(jsonMapper.readTree(expectedJson), jsonMapper.readTree((String) actualEntity.getBody()));
 	}
 }
