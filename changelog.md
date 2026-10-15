@@ -1,5 +1,18 @@
 # Changelog
 
+## Release 2.13
+Brief Summary
+- Fixed a bug to avoid rounding errors, so release versions with closely related version number are matched correctly
+- Upgrade repository to Spring Boot 4.1.1
+---
+
+## Release 2.12
+Brief summary:
+ - upgrade the base image of the Dockerfile
+
+---
+
+
 ## Release 2.11
 Brief summary of what's in this release:
 - n/a
