@@ -1,17 +1,21 @@
 package org.kpmp.spatialViewerDataset;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertInstanceOf;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONException;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.core.env.Environment;
@@ -20,6 +24,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.test.util.ReflectionTestUtils;
 import org.springframework.web.client.RestTemplate;
+import tools.jackson.databind.json.JsonMapper;
 
 public class SpatialViewerDatasetServiceTest {
 
@@ -90,12 +95,12 @@ public class SpatialViewerDatasetServiceTest {
 		spatialViewerDataset2.setExternalLink("55");
 		SpatialViewerFileDataset spatialViewerDataset3 = new SpatialViewerFileDataset();
         spatialViewerDataset3.setDlFileId("DlFileId");
-        spatialViewerDataset3.setReleaseVersion(45.0);
+        spatialViewerDataset3.setReleaseVersion(new BigDecimal("45.0"));
 		spatialViewerDataset3.setParticipantId(456);
 		spatialViewerDataset3.setRedcapId("456-456");
 		spatialViewerDataset3.setFileId(444);
 		SpatialViewerFileDataset spatialViewerDataset4 = new SpatialViewerFileDataset();
-        spatialViewerDataset4.setReleaseVersion(34.0);
+        spatialViewerDataset4.setReleaseVersion(new BigDecimal("34.0"));
         spatialViewerDataset4.setDlFileId("DlFileId2");
 		spatialViewerDataset4.setParticipantId(566);
 		spatialViewerDataset4.setRedcapId("566-456");
@@ -104,7 +109,7 @@ public class SpatialViewerDatasetServiceTest {
 		expectedResult1.add(spatialViewerDataset2);
 		expectedResult2.add(spatialViewerDataset3);
 		expectedResult2.add(spatialViewerDataset4);
-        when(fileRepo.max()).thenReturn(34.0);
+        when(fileRepo.max()).thenReturn(new BigDecimal("34.0"));
 		when(externalLinkRepo.findAll()).thenReturn(expectedResult1);
 		when(fileRepo.findAll()).thenReturn(expectedResult2);
 		results.addAll(expectedResult1);
@@ -114,6 +119,14 @@ public class SpatialViewerDatasetServiceTest {
 		SpatialViewerDatasetService.ESResponse[] esResponses = {new SpatialViewerDatasetService.ESResponse()};
 		when(restTemplate.postForObject(anyString(), any(), any(Class.class))).thenReturn(esResponses);
 		service.loadEnterpriseSearch();
-		verify(restTemplate).postForObject("host/api/as/v1/engines/search-engine/documents", entity, SpatialViewerDatasetService.ESResponse[].class);
+		ArgumentCaptor<Object> requestCaptor = ArgumentCaptor.forClass(Object.class);
+		verify(restTemplate).postForObject(
+				eq("host/api/as/v1/engines/search-engine/documents"),
+				requestCaptor.capture(),
+				eq(SpatialViewerDatasetService.ESResponse[].class));
+		HttpEntity<?> actualEntity = assertInstanceOf(HttpEntity.class, requestCaptor.getValue());
+		assertEquals(entity.getHeaders(), actualEntity.getHeaders());
+		JsonMapper jsonMapper = JsonMapper.builder().build();
+		assertEquals(jsonMapper.readTree(expectedJson), jsonMapper.readTree((String) actualEntity.getBody()));
 	}
 }

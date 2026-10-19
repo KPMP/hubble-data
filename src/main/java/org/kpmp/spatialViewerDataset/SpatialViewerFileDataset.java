@@ -17,6 +17,7 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Entity
@@ -47,7 +48,7 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
     private String enrollmentCategory;
     private String spectrackSampleId;
     private String level;
-    private Double releaseVersion;
+    private BigDecimal releaseVersion;
     @Column(name = "primary_adjudicated_cat")
     private String primaryAdjudicatedCategory;
     private String kdigoStage = "";
@@ -268,11 +269,11 @@ public class SpatialViewerFileDataset implements SpatialViewerDataset {
 
     
     @JsonIgnore
-    public Double getReleaseVersion(){
+    public BigDecimal getReleaseVersion(){
         return releaseVersion;
     }
 
-    public void setReleaseVersion(Double releaseVersion){
+    public void setReleaseVersion(BigDecimal releaseVersion){
         this.releaseVersion = releaseVersion;
     }
 

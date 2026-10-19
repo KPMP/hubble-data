@@ -1,6 +1,8 @@
 package org.kpmp.spatialViewerDataset;
 
 import org.kpmp.file.File;
+
+import java.math.BigDecimal;
 import java.util.List;
 
 public interface SpatialViewerDataset {
@@ -51,7 +53,7 @@ public interface SpatialViewerDataset {
   
   String getExternalLink();
 
-  Double getReleaseVersion();
+  BigDecimal getReleaseVersion();
 
   String getPrimaryAdjudicatedCategory();
 

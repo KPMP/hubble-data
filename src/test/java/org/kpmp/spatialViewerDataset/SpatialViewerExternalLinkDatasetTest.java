@@ -2,6 +2,8 @@ package org.kpmp.spatialViewerDataset;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.math.BigDecimal;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -120,8 +122,8 @@ public class SpatialViewerExternalLinkDatasetTest {
 
     @Test
     public void setReleaseVerison(){
-        Double expected = 56.0;
-        spatialViewerExternalLink.setReleaseVersion(56.0);
+        BigDecimal expected = new BigDecimal("56.0");
+        spatialViewerExternalLink.setReleaseVersion(new BigDecimal("56.0"));
         assertEquals(expected, spatialViewerExternalLink.getReleaseVersion());
     }
 
