@@ -8,6 +8,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+import tools.jackson.databind.JsonNode;
 import tools.jackson.databind.ObjectMapper;
 
 import java.util.ArrayList;
@@ -32,6 +33,10 @@ public class SpatialViewerDatasetService  {
     private String recentlyReleasedDate;
 	private RestTemplate restTemplate;
 	private Environment env;
+    @Value("${elasticsearch.host}")
+    private String elasticsearchHost;
+    @Value("${elasticsearch.index.name}")   // point this at the alias, e.g. atlas-repository
+    private String indexName;
 
 	public static class ESResponse {
 		String id;
@@ -147,5 +152,46 @@ public class SpatialViewerDatasetService  {
 		}
 		return responses;
 	}
+
+    public List<String> loadElasticsearch() throws Exception {
+        List<SpatialViewerDataset> datasets = getSpatialViewerDataset();
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("Authorization", "ApiKey " + env.getProperty("ES_API_KEY"));
+        headers.setContentType(MediaType.parseMediaType("application/x-ndjson"));
+
+        ObjectMapper mapper = new ObjectMapper();
+        List<String> errors = new ArrayList<>();
+        final int batchSize = 500;
+
+        for (int start = 0; start < datasets.size(); start += batchSize) {
+            List<SpatialViewerDataset> batch =
+                    datasets.subList(start, Math.min(start + batchSize, datasets.size()));
+
+            StringBuilder body = new StringBuilder();
+            for (SpatialViewerDataset doc : batch) {
+                body.append(mapper.writeValueAsString(
+                                Map.of("index", Map.of("_index", indexName, "_id", doc.getFileId()))))
+                        .append('\n');
+                body.append(mapper.writeValueAsString(doc)).append('\n');
+            }
+
+            JsonNode response = restTemplate.postForObject(
+                    elasticsearchHost + "/_bulk",
+                    new HttpEntity<>(body.toString(), headers),
+                    JsonNode.class);
+
+            if (response.path("errors").asBoolean()) {
+                for (JsonNode item : response.path("items")) {
+                    JsonNode result = item.path("index");
+                    if (result.has("error")) {
+                        errors.add(result.path("_id").asText() + ": "
+                                + result.path("error").path("reason").asText());
+                    }
+                }
+            }
+        }
+        return errors;
+    }
 
 }
