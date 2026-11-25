@@ -21,4 +21,9 @@ public class SpatialViewerDatasetController {
     public @ResponseBody String loadSearch(HttpServletRequest request) throws Exception {
         return "Successfully added " + spatialViewerDatasetService.loadEnterpriseSearch().size() + " documents.";
     }
+
+    @RequestMapping(value = "/api/v1/spatial-viewer/load-elastic-search", method = RequestMethod.GET)
+    public @ResponseBody String loadElasticSearch(HttpServletRequest request) throws Exception {
+        return "Successfully added " + spatialViewerDatasetService.loadElasticsearch().size() + " documents.";
+    }
 }
