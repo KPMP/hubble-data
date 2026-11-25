@@ -171,7 +171,7 @@ public class SpatialViewerDatasetService  {
             StringBuilder body = new StringBuilder();
             for (SpatialViewerDataset doc : batch) {
                 body.append(mapper.writeValueAsString(
-                                Map.of("index", Map.of("_index", indexName, "_id", doc.getFileId()))))
+                                Map.of("index", Map.of("_index", indexName, "_id", doc.getDlFileId()))))
                         .append('\n');
                 body.append(mapper.writeValueAsString(doc)).append('\n');
             }
